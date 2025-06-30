@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.36101.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stash Explorer", "Stash Explorer\Stash Explorer.csproj", "{17A96447-90B3-45FC-8087-46FA620BD4CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17A96447-90B3-45FC-8087-46FA620BD4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A96447-90B3-45FC-8087-46FA620BD4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A96447-90B3-45FC-8087-46FA620BD4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A96447-90B3-45FC-8087-46FA620BD4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A885F950-BA9C-4D07-9289-8A7E9B3B3519}
+	EndGlobalSection
+EndGlobal
