@@ -6,6 +6,8 @@
 
 Stash Explorer adds extra (external) functionality to your Stashapp instance.
 
+![example image](https://cdn.windowslogic.co.uk/img/an39517o.png)
+
 ## What Can Stash Explorer Do?
 
 - 📁 **Browse Your Stash:** Enhance your Stashapp browsing experience with extra functionality on top.
