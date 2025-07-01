@@ -58,5 +58,29 @@ namespace Stash_Explorer.Properties {
                 this["Startup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("performers/")]
+        public string StartupToDest {
+            get {
+                return ((string)(this["StartupToDest"]));
+            }
+            set {
+                this["StartupToDest"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SysTrayMinimise {
+            get {
+                return ((bool)(this["SysTrayMinimise"]));
+            }
+            set {
+                this["SysTrayMinimise"] = value;
+            }
+        }
     }
 }

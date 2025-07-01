@@ -45,6 +45,27 @@ namespace Stash_Explorer
             ContentTimer.Stop();
         }
 
+        void Restore()
+        {
+            try
+            {
+                this.Visible = true;
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+                sysTrayIcon.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -118,6 +139,101 @@ namespace Stash_Explorer
         private void stashappSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "settings");
+        }
+
+        private void sysTrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Visible = true;
+                this.WindowState = FormWindowState.Normal;
+                sysTrayIcon.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.SysTrayMinimise == true)
+            {
+                if (WindowState == FormWindowState.Minimized)
+                {
+                    this.Visible = false;
+                    sysTrayIcon.Visible = true;
+                    sysTrayIcon.ShowBalloonTip(1, "Stash Explorer - Notification", "Stash Explorer is now running in the background.", ToolTipIcon.Info);
+                    GC.Collect();
+                }
+            }
+            else if (Properties.Settings.Default.SysTrayMinimise == false)
+            {
+                GC.Collect();
+            }
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+        }
+
+        private void scenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "scenes");
+        }
+
+        private void imagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "images");
+        }
+
+        private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "groups");
+        }
+
+        private void markersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "markers");
+        }
+
+        private void galleriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "galleries");
+        }
+
+        private void performersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "performers");
+        }
+
+        private void studiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "studios");
+        }
+
+        private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restore();
+            webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "tags");
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Stash Explorer " + Application.ProductVersion + "\n\nContribute on the GitHub.\n\nLicensed under GPLv3.", "About Stash Explorer");
         }
     }
 }

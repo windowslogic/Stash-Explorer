@@ -1,0 +1,20 @@
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\runtimes\win-x86\native\WebView2Loader.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\runtimes\win-x64\native\WebView2Loader.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\runtimes\win-arm64\native\WebView2Loader.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Stash Explorer.exe.config
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Stash Explorer.exe
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Stash Explorer.pdb
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.Core.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.WinForms.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.Wpf.dll
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.Core.xml
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.WinForms.xml
+J:\Projects\Stash Explorer\Stash Explorer\bin\Release\Microsoft.Web.WebView2.Wpf.xml
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.Main.resources
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.Properties.Resources.resources
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.Settings.resources
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.GenerateResource.cache
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.CoreCompileInputs.cache
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.CopyComplete
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.exe
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.pdb

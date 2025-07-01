@@ -11,5 +11,11 @@
     <Setting Name="Startup" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="StartupToDest" Type="System.String" Scope="User">
+      <Value Profile="(Default)">performers/</Value>
+    </Setting>
+    <Setting Name="SysTrayMinimise" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
