@@ -12,10 +12,10 @@ Stash Explorer adds extra (external) functionality to your Stashapp instance.
 
 - 📁 **Browse Your Stash:** Enhance your Stashapp browsing experience with extra functionality on top.
 - 🔍 **Location Settings:** Modify where Stash Explorer pulls your Stashapp from. The default is http://localhost:9999/.
-- 🏷️ **System Tray Menu:** Get to your Stashapp content from anywhere on your computer, even if you're running another application. Minimise the program to the System Tray to keep it out of your way.
-- 📝 **Start-up Settings:** Set Stash Explorer to start at a specific location (performer, gallery or tag) if you know the number corresponding to the place you want to go.
-- 🔄 **Favourites:** (Coming Soon) Pin your favourite performers to the top so you can easily get to them at a later date, even when you're not on the performers page.
-- 🔒 **Portability:** Run the program on any computer with its standalone executable.
+- 📝 **System Tray Menu:** Get to your Stashapp content from anywhere on your computer, even if you're running another application. Minimise the program to the System Tray to keep it out of your way.
+- ⚙️ **Start-up Settings:** Set Stash Explorer to start at a specific location (performer, gallery or tag) if you know the number corresponding to the place you want to go.
+- ⭐ **Favourites:** (Coming Soon) Pin your favourite performers to the top so you can easily get to them at a later date, even when you're not on the performers page.
+- 💼 **Portability:** Run the program on any computer with its small footprint.
 
 ## Download
 
@@ -30,7 +30,7 @@ Stash Explorer is made with C# and .NET Framework 4.8. If you want to use it, ju
 
 2. **Open the Project**
    - Unzip the folder if you downloaded it.
-   - Open the folder in [Visual Studio](https://visualstudio.microsoft.com/) or another C#/.NET editor.
+   - Open the solution file in Visual Studio 2017 with .NET Desktop Development.
 
 3. **Build and Run**
    - Head to the "Build" menu and click "Build Solution" to build the project.
@@ -38,4 +38,4 @@ Stash Explorer is made with C# and .NET Framework 4.8. If you want to use it, ju
 
 ## Want to Help?
 
-If you have ideas to make Stash Explorer better or notice something isn’t working, you can help by letting us know! Click on "Issues" at the top of this page to report a problem or suggest an improvement.
+If you have ideas to make Stash Explorer better or notice something isn’t working, you can help by letting us know! Click on [Issues](https://github.com/windowslogic/Stash-Explorer/issues) at the top of this page to report a problem or suggest an improvement.
