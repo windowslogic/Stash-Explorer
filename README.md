@@ -17,6 +17,7 @@ Stash Explorer adds extra (external) functionality to your Stashapp instance.
 - ⭐ **Favourites:** (Coming Soon) Pin your favourite performers to the top so you can easily get to them at a later date, even when you're not on the performers page.
 - 💼 **Portability:** Run the program on any computer with its small footprint.
 - 💻 **Instant Screen shots:** Right-click anywhere on your Stashapp to access a fully featured screen shotting tool (provided by WebView2).
+- 🔐 **Local, shareable user accounts:** (Coming Soon) Create local user accounts for your Stash Explorer with the ability to create and share for people to access your Stashapp instance. Please share responsibly!
 
 ## Download
 
