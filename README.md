@@ -16,6 +16,7 @@ Stash Explorer adds extra (external) functionality to your Stashapp instance.
 - ⚙️ **Start-up Settings:** Set Stash Explorer to start at a specific location (performer, gallery or tag) if you know the number corresponding to the place you want to go.
 - ⭐ **Favourites:** (Coming Soon) Pin your favourite performers to the top so you can easily get to them at a later date, even when you're not on the performers page.
 - 💼 **Portability:** Run the program on any computer with its small footprint.
+- 💻 **Instant Screen shots:** Right-click anywhere on your Stashapp to access a fully featured screen shotting tool (provided by WebView2).
 
 ## Download
 
