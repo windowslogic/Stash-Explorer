@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,15 @@ namespace Stash_Explorer
         {
             InitializeComponent();
             
+        }
+
+        void CheckChars(KeyPressEventArgs e)
+        {
+            var regex = new Regex(@"[^0-9\s\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -51,18 +61,21 @@ namespace Stash_Explorer
                     textBoxPerformer.Enabled = true;
                     textBoxGallery.Enabled = false;
                     textBoxTag.Enabled = false;
+                    textBoxPerformer.Text = Properties.Settings.Default.StartupIDP;
                     break;
                 case 3:
                     radioButtonGallery.Checked = true;
                     textBoxPerformer.Enabled = false;
                     textBoxGallery.Enabled = true;
                     textBoxTag.Enabled = false;
+                    textBoxGallery.Text = Properties.Settings.Default.StartupIDG;
                     break;
                 case 4:
                     radioButtonTag.Checked = true;
                     textBoxPerformer.Enabled = false;
                     textBoxGallery.Enabled = false;
                     textBoxTag.Enabled = true;
+                    textBoxTag.Text = Properties.Settings.Default.StartupIDT;
                     break;
             }
 
@@ -79,6 +92,26 @@ namespace Stash_Explorer
             else
             {
 
+            }
+
+            switch (Properties.Settings.Default.Startup)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    Properties.Settings.Default.StartupIDP = textBoxPerformer.Text;
+                    Properties.Settings.Default.StartupToDest = "performers/" + Properties.Settings.Default.StartupIDP;
+                    break;
+                case 3:
+                    Properties.Settings.Default.StartupIDG = textBoxGallery.Text;
+                    Properties.Settings.Default.StartupToDest = "galleries/" + Properties.Settings.Default.StartupIDG;
+                    break;
+                case 4:
+                    Properties.Settings.Default.StartupIDT = textBoxTag.Text;
+                    Properties.Settings.Default.StartupToDest = "tags/" + Properties.Settings.Default.StartupIDT;
+                    break;
             }
 
             Properties.Settings.Default.Domain = textBoxURL.Text;
@@ -113,7 +146,6 @@ namespace Stash_Explorer
             textBoxGallery.Enabled = false;
             textBoxTag.Enabled = false;
             Properties.Settings.Default.Startup = 2;
-            Properties.Settings.Default.StartupToDest = "performers/" + textBoxPerformer.Text;
         }
 
         private void radioButtonGallery_CheckedChanged(object sender, EventArgs e)
@@ -122,7 +154,6 @@ namespace Stash_Explorer
             textBoxGallery.Enabled = true;
             textBoxTag.Enabled = false;
             Properties.Settings.Default.Startup = 3;
-            Properties.Settings.Default.StartupToDest = "galleries/" + textBoxPerformer.Text;
         }
 
         private void radioButtonTag_CheckedChanged(object sender, EventArgs e)
@@ -131,7 +162,6 @@ namespace Stash_Explorer
             textBoxGallery.Enabled = false;
             textBoxTag.Enabled = true;
             Properties.Settings.Default.Startup = 4;
-            Properties.Settings.Default.StartupToDest = "tags/" + textBoxPerformer.Text;
         }
 
         private void SysTrayMinimiseBox_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +174,21 @@ namespace Stash_Explorer
             {
                 Properties.Settings.Default.SysTrayMinimise = false;
             }
+        }
+
+        private void textBoxPerformer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckChars(e);
+        }
+
+        private void textBoxGallery_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckChars(e);
+        }
+
+        private void textBoxTag_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckChars(e);
         }
     }
 }

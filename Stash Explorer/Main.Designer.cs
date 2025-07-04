@@ -99,13 +99,13 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
             this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newWindowToolStripMenuItem.Text = "New window";
+            this.newWindowToolStripMenuItem.Text = "&New window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -117,35 +117,35 @@
             // 
             this.createSceneToolStripMenuItem.Name = "createSceneToolStripMenuItem";
             this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createSceneToolStripMenuItem.Text = "Create scene";
+            this.createSceneToolStripMenuItem.Text = "Create &scene";
             this.createSceneToolStripMenuItem.Click += new System.EventHandler(this.createSceneToolStripMenuItem_Click);
             // 
             // createGalleryToolStripMenuItem
             // 
             this.createGalleryToolStripMenuItem.Name = "createGalleryToolStripMenuItem";
             this.createGalleryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createGalleryToolStripMenuItem.Text = "Create gallery";
+            this.createGalleryToolStripMenuItem.Text = "Create &gallery";
             this.createGalleryToolStripMenuItem.Click += new System.EventHandler(this.createGalleryToolStripMenuItem_Click);
             // 
             // createPerformerToolStripMenuItem
             // 
             this.createPerformerToolStripMenuItem.Name = "createPerformerToolStripMenuItem";
             this.createPerformerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createPerformerToolStripMenuItem.Text = "Create performer";
+            this.createPerformerToolStripMenuItem.Text = "Create &performer";
             this.createPerformerToolStripMenuItem.Click += new System.EventHandler(this.createPerformerToolStripMenuItem_Click);
             // 
             // createStudioToolStripMenuItem
             // 
             this.createStudioToolStripMenuItem.Name = "createStudioToolStripMenuItem";
             this.createStudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createStudioToolStripMenuItem.Text = "Create studio";
+            this.createStudioToolStripMenuItem.Text = "Create st&udio";
             this.createStudioToolStripMenuItem.Click += new System.EventHandler(this.createStudioToolStripMenuItem_Click);
             // 
             // createTagToolStripMenuItem
             // 
             this.createTagToolStripMenuItem.Name = "createTagToolStripMenuItem";
             this.createTagToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createTagToolStripMenuItem.Text = "Create tag";
+            this.createTagToolStripMenuItem.Text = "Create &tag";
             this.createTagToolStripMenuItem.Click += new System.EventHandler(this.createTagToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -157,7 +157,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // stashToolStripMenuItem
@@ -169,20 +169,20 @@
             this.stashExplorerSettingsToolStripMenuItem});
             this.stashToolStripMenuItem.Name = "stashToolStripMenuItem";
             this.stashToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.stashToolStripMenuItem.Text = "Stash";
+            this.stashToolStripMenuItem.Text = "&Stash";
             // 
             // stashappStatsToolStripMenuItem
             // 
             this.stashappStatsToolStripMenuItem.Name = "stashappStatsToolStripMenuItem";
             this.stashappStatsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.stashappStatsToolStripMenuItem.Text = "Stashapp stats";
+            this.stashappStatsToolStripMenuItem.Text = "St&ashapp stats";
             this.stashappStatsToolStripMenuItem.Click += new System.EventHandler(this.stashappStatsToolStripMenuItem_Click);
             // 
             // stashappSettingsToolStripMenuItem
             // 
             this.stashappSettingsToolStripMenuItem.Name = "stashappSettingsToolStripMenuItem";
             this.stashappSettingsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.stashappSettingsToolStripMenuItem.Text = "Stashapp settings";
+            this.stashappSettingsToolStripMenuItem.Text = "&Stashapp settings";
             this.stashappSettingsToolStripMenuItem.Click += new System.EventHandler(this.stashappSettingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -194,7 +194,7 @@
             // 
             this.stashExplorerSettingsToolStripMenuItem.Name = "stashExplorerSettingsToolStripMenuItem";
             this.stashExplorerSettingsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.stashExplorerSettingsToolStripMenuItem.Text = "Stash Explorer settings...";
+            this.stashExplorerSettingsToolStripMenuItem.Text = "Stash &Explorer settings...";
             this.stashExplorerSettingsToolStripMenuItem.Click += new System.EventHandler(this.stashExplorerSettingsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -205,7 +205,7 @@
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // keyboardShortcutsToolStripMenuItem
             // 
@@ -223,7 +223,7 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.aboutToolStripMenuItem.Text = "About...";
+            this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // TitleTimer
@@ -273,6 +273,7 @@
             this.toolStripSeparator5,
             this.exitToolStripMenuItem1});
             this.sysTrayMenu.Name = "sysTrayMenu";
+            this.sysTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.sysTrayMenu.Size = new System.Drawing.Size(133, 236);
             // 
             // restoreToolStripMenuItem

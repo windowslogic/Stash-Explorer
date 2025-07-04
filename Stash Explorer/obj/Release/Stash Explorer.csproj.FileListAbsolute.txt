@@ -18,3 +18,4 @@ J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.Core
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.CopyComplete
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.exe
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.pdb
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csprojAssemblyReference.cache

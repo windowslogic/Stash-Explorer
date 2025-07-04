@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +19,10 @@ namespace Stash_Explorer
 
         }
 
+        #region Variables
         void LoadContent()
         {
+            ContentTimer.Stop();
             if (Properties.Settings.Default.DomainConfigured == false)
             {
                 webView21.Visible = false;
@@ -27,22 +30,48 @@ namespace Stash_Explorer
                 {
                     Settings settings = new Settings();
                     settings.ShowDialog();
-                    this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+                    WVSNavigate();
                 }
                 else
                 {
-                    webView21.Visible = true;
-                    this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+                    WVSNavigate();
                 }
 
             }
             else
             {
-                webView21.Visible = true;
-                this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+                WVSNavigate();
             }
+        }
 
-            ContentTimer.Stop();
+        void WVSNavigate()
+        {
+            webView21.Visible = true;
+            this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+
+            //Thread.Sleep(1000);
+
+            switch (Properties.Settings.Default.Startup)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    StartupToDestination();
+                    break;
+                case 3:
+                    StartupToDestination();
+                    break;
+                case 4:
+                    StartupToDestination();
+                    break;
+            }
+        }
+
+        void StartupToDestination()
+        {
+            this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + Properties.Settings.Default.StartupToDest);
         }
 
         void Restore()
@@ -65,6 +94,18 @@ namespace Stash_Explorer
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
+        #region Load Settings
+        private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        {
+            ContentTimer.Start();
+        }
+
+        private void ContentTimer_Tick(object sender, EventArgs e)
+        {
+            LoadContent();
+        }
+        #endregion
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -83,16 +124,6 @@ namespace Stash_Explorer
             Settings settings = new Settings();
             settings.ShowDialog();
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
-        }
-
-        private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
-        {
-            ContentTimer.Start();
-        }
-
-        private void ContentTimer_Tick(object sender, EventArgs e)
-        {
-            LoadContent();
         }
 
         private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
