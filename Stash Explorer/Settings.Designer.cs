@@ -50,12 +50,15 @@
             this.SystemTrayButton = new System.Windows.Forms.RadioButton();
             this.NothingButton = new System.Windows.Forms.RadioButton();
             this.Label6 = new System.Windows.Forms.Label();
+            this.groupBoxReload = new System.Windows.Forms.GroupBox();
+            this.checkBoxReload = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBoxStartup.SuspendLayout();
+            this.groupBoxReload.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -70,6 +73,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBoxReload);
             this.tabPage1.Controls.Add(this.GroupBox4);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -84,7 +88,7 @@
             // 
             this.GroupBox4.Controls.Add(this.SysTrayMinimiseBox);
             this.GroupBox4.Controls.Add(this.Label7);
-            this.GroupBox4.Location = new System.Drawing.Point(6, 150);
+            this.GroupBox4.Location = new System.Drawing.Point(6, 141);
             this.GroupBox4.Name = "GroupBox4";
             this.GroupBox4.Size = new System.Drawing.Size(414, 79);
             this.GroupBox4.TabIndex = 3;
@@ -97,8 +101,8 @@
             this.SysTrayMinimiseBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.SysTrayMinimiseBox.Location = new System.Drawing.Point(9, 52);
             this.SysTrayMinimiseBox.Name = "SysTrayMinimiseBox";
-            this.SysTrayMinimiseBox.Size = new System.Drawing.Size(139, 18);
-            this.SysTrayMinimiseBox.TabIndex = 2;
+            this.SysTrayMinimiseBox.Size = new System.Drawing.Size(151, 18);
+            this.SysTrayMinimiseBox.TabIndex = 1;
             this.SysTrayMinimiseBox.Text = "Minimise to system tray";
             this.SysTrayMinimiseBox.UseVisualStyleBackColor = true;
             this.SysTrayMinimiseBox.CheckedChanged += new System.EventHandler(this.SysTrayMinimiseBox_CheckedChanged);
@@ -108,10 +112,10 @@
             this.Label7.AutoSize = true;
             this.Label7.Location = new System.Drawing.Point(6, 16);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(384, 26);
+            this.Label7.Size = new System.Drawing.Size(397, 26);
             this.Label7.TabIndex = 0;
-            this.Label7.Text = "When minimising Stash Explorer, it will hide itself in the system tray and run in" +
-    " the\r\nbackground.";
+            this.Label7.Text = "When minimising Stash Explorer, it will hide itself in the system tray and run\r\ni" +
+    "n the background.";
             // 
             // groupBox1
             // 
@@ -121,7 +125,7 @@
             this.groupBox1.Controls.Add(this.labelURL);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 138);
+            this.groupBox1.Size = new System.Drawing.Size(414, 129);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stashapp Location Settings";
@@ -130,9 +134,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(6, 104);
+            this.label1.Location = new System.Drawing.Point(6, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 26);
+            this.label1.Size = new System.Drawing.Size(382, 26);
             this.label1.TabIndex = 3;
             this.label1.Text = "WARNING: Your Stashapp URL must be formatted like the example above.\r\nIf not, you" +
     " could break the navigation in this app.";
@@ -142,23 +146,23 @@
             this.labelURLExplain.AutoSize = true;
             this.labelURLExplain.Location = new System.Drawing.Point(6, 16);
             this.labelURLExplain.Name = "labelURLExplain";
-            this.labelURLExplain.Size = new System.Drawing.Size(391, 39);
+            this.labelURLExplain.Size = new System.Drawing.Size(383, 39);
             this.labelURLExplain.TabIndex = 2;
             this.labelURLExplain.Text = resources.GetString("labelURLExplain.Text");
             // 
             // textBoxURL
             // 
-            this.textBoxURL.Location = new System.Drawing.Point(111, 73);
+            this.textBoxURL.Location = new System.Drawing.Point(111, 62);
             this.textBoxURL.Name = "textBoxURL";
-            this.textBoxURL.Size = new System.Drawing.Size(297, 20);
+            this.textBoxURL.Size = new System.Drawing.Size(297, 22);
             this.textBoxURL.TabIndex = 0;
             // 
             // labelURL
             // 
             this.labelURL.AutoSize = true;
-            this.labelURL.Location = new System.Drawing.Point(6, 76);
+            this.labelURL.Location = new System.Drawing.Point(6, 65);
             this.labelURL.Name = "labelURL";
-            this.labelURL.Size = new System.Drawing.Size(99, 13);
+            this.labelURL.Size = new System.Drawing.Size(105, 13);
             this.labelURL.TabIndex = 1;
             this.labelURL.Text = "Stashapp Location:";
             // 
@@ -196,8 +200,8 @@
             this.textBoxTag.Enabled = false;
             this.textBoxTag.Location = new System.Drawing.Point(145, 145);
             this.textBoxTag.Name = "textBoxTag";
-            this.textBoxTag.Size = new System.Drawing.Size(263, 20);
-            this.textBoxTag.TabIndex = 12;
+            this.textBoxTag.Size = new System.Drawing.Size(263, 22);
+            this.textBoxTag.TabIndex = 7;
             this.textBoxTag.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTag_KeyPress);
             // 
             // textBoxGallery
@@ -205,8 +209,8 @@
             this.textBoxGallery.Enabled = false;
             this.textBoxGallery.Location = new System.Drawing.Point(145, 122);
             this.textBoxGallery.Name = "textBoxGallery";
-            this.textBoxGallery.Size = new System.Drawing.Size(263, 20);
-            this.textBoxGallery.TabIndex = 11;
+            this.textBoxGallery.Size = new System.Drawing.Size(263, 22);
+            this.textBoxGallery.TabIndex = 5;
             this.textBoxGallery.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGallery_KeyPress);
             // 
             // textBoxPerformer
@@ -214,8 +218,8 @@
             this.textBoxPerformer.Enabled = false;
             this.textBoxPerformer.Location = new System.Drawing.Point(145, 99);
             this.textBoxPerformer.Name = "textBoxPerformer";
-            this.textBoxPerformer.Size = new System.Drawing.Size(263, 20);
-            this.textBoxPerformer.TabIndex = 10;
+            this.textBoxPerformer.Size = new System.Drawing.Size(263, 22);
+            this.textBoxPerformer.TabIndex = 3;
             this.textBoxPerformer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPerformer_KeyPress);
             // 
             // radioButtonTag
@@ -224,8 +228,8 @@
             this.radioButtonTag.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButtonTag.Location = new System.Drawing.Point(9, 146);
             this.radioButtonTag.Name = "radioButtonTag";
-            this.radioButtonTag.Size = new System.Drawing.Size(107, 18);
-            this.radioButtonTag.TabIndex = 9;
+            this.radioButtonTag.Size = new System.Drawing.Size(113, 18);
+            this.radioButtonTag.TabIndex = 6;
             this.radioButtonTag.TabStop = true;
             this.radioButtonTag.Text = "Navigate to tag:";
             this.radioButtonTag.UseVisualStyleBackColor = true;
@@ -237,8 +241,8 @@
             this.radioButtonGallery.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButtonGallery.Location = new System.Drawing.Point(9, 123);
             this.radioButtonGallery.Name = "radioButtonGallery";
-            this.radioButtonGallery.Size = new System.Drawing.Size(122, 18);
-            this.radioButtonGallery.TabIndex = 8;
+            this.radioButtonGallery.Size = new System.Drawing.Size(130, 18);
+            this.radioButtonGallery.TabIndex = 4;
             this.radioButtonGallery.TabStop = true;
             this.radioButtonGallery.Text = "Navigate to gallery:";
             this.radioButtonGallery.UseVisualStyleBackColor = true;
@@ -250,8 +254,8 @@
             this.radioButtonPerformer.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButtonPerformer.Location = new System.Drawing.Point(9, 100);
             this.radioButtonPerformer.Name = "radioButtonPerformer";
-            this.radioButtonPerformer.Size = new System.Drawing.Size(136, 18);
-            this.radioButtonPerformer.TabIndex = 7;
+            this.radioButtonPerformer.Size = new System.Drawing.Size(147, 18);
+            this.radioButtonPerformer.TabIndex = 2;
             this.radioButtonPerformer.TabStop = true;
             this.radioButtonPerformer.Text = "Navigate to performer:";
             this.radioButtonPerformer.UseVisualStyleBackColor = true;
@@ -263,8 +267,8 @@
             this.SystemTrayButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.SystemTrayButton.Location = new System.Drawing.Point(9, 77);
             this.SystemTrayButton.Name = "SystemTrayButton";
-            this.SystemTrayButton.Size = new System.Drawing.Size(138, 18);
-            this.SystemTrayButton.TabIndex = 6;
+            this.SystemTrayButton.Size = new System.Drawing.Size(150, 18);
+            this.SystemTrayButton.TabIndex = 1;
             this.SystemTrayButton.TabStop = true;
             this.SystemTrayButton.Text = "Minimise to system tray";
             this.SystemTrayButton.UseVisualStyleBackColor = true;
@@ -276,8 +280,8 @@
             this.NothingButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.NothingButton.Location = new System.Drawing.Point(9, 54);
             this.NothingButton.Name = "NothingButton";
-            this.NothingButton.Size = new System.Drawing.Size(68, 18);
-            this.NothingButton.TabIndex = 5;
+            this.NothingButton.Size = new System.Drawing.Size(74, 18);
+            this.NothingButton.TabIndex = 0;
             this.NothingButton.TabStop = true;
             this.NothingButton.Text = "Nothing";
             this.NothingButton.UseVisualStyleBackColor = true;
@@ -288,10 +292,32 @@
             this.Label6.AutoSize = true;
             this.Label6.Location = new System.Drawing.Point(6, 16);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(407, 26);
+            this.Label6.Size = new System.Drawing.Size(378, 26);
             this.Label6.TabIndex = 4;
-            this.Label6.Text = "Set how you want Stash Explorer to start. When starting to a performer, gallery o" +
-    "r tag,\r\nuse the ID corresponding to the item you want to start at.";
+            this.Label6.Text = "Set how you want Stash Explorer to start. When starting to a performer,\r\ngallery " +
+    "or tag, use the ID corresponding to the item you want to start at.";
+            // 
+            // groupBoxReload
+            // 
+            this.groupBoxReload.Controls.Add(this.checkBoxReload);
+            this.groupBoxReload.Location = new System.Drawing.Point(6, 226);
+            this.groupBoxReload.Name = "groupBoxReload";
+            this.groupBoxReload.Size = new System.Drawing.Size(414, 51);
+            this.groupBoxReload.TabIndex = 4;
+            this.groupBoxReload.TabStop = false;
+            this.groupBoxReload.Text = "Other Settings";
+            // 
+            // checkBoxReload
+            // 
+            this.checkBoxReload.AutoSize = true;
+            this.checkBoxReload.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxReload.Location = new System.Drawing.Point(6, 24);
+            this.checkBoxReload.Name = "checkBoxReload";
+            this.checkBoxReload.Size = new System.Drawing.Size(235, 18);
+            this.checkBoxReload.TabIndex = 2;
+            this.checkBoxReload.Text = "Reload Stashapp when closing settings";
+            this.checkBoxReload.UseVisualStyleBackColor = true;
+            this.checkBoxReload.CheckedChanged += new System.EventHandler(this.checkBoxReload_CheckedChanged);
             // 
             // Settings
             // 
@@ -299,6 +325,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 334);
             this.Controls.Add(this.tabControl1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -318,6 +345,8 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
+            this.groupBoxReload.ResumeLayout(false);
+            this.groupBoxReload.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -345,5 +374,7 @@
         internal System.Windows.Forms.GroupBox GroupBox4;
         internal System.Windows.Forms.CheckBox SysTrayMinimiseBox;
         internal System.Windows.Forms.Label Label7;
+        private System.Windows.Forms.GroupBox groupBoxReload;
+        private System.Windows.Forms.CheckBox checkBoxReload;
     }
 }

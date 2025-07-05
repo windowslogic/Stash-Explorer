@@ -42,6 +42,15 @@ namespace Stash_Explorer
                 SysTrayMinimiseBox.Checked = false;
             }
 
+            if (Properties.Settings.Default.Reload == true)
+            {
+                checkBoxReload.Checked = true;
+            }
+            else
+            {
+                checkBoxReload.Checked = false;
+            }
+
             switch (Properties.Settings.Default.Startup)
             {
                 case 0:
@@ -189,6 +198,18 @@ namespace Stash_Explorer
         private void textBoxTag_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckChars(e);
+        }
+
+        private void checkBoxReload_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxReload.Checked == true)
+            {
+                Properties.Settings.Default.Reload = true;
+            }
+            else
+            {
+                Properties.Settings.Default.Reload = false;
+            }
         }
     }
 }

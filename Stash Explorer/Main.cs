@@ -56,6 +56,14 @@ namespace Stash_Explorer
                 case 0:
                     break;
                 case 1:
+                    this.WindowState = FormWindowState.Minimized;
+                    if (WindowState == FormWindowState.Minimized)
+                    {
+                        this.Visible = false;
+                        sysTrayIcon.Visible = true;
+                        sysTrayIcon.ShowBalloonTip(1, "Stash Explorer - Notification", "Stash Explorer is now running in the background.", ToolTipIcon.Info);
+                        GC.Collect();
+                    }
                     break;
                 case 2:
                     StartupToDestination();
@@ -123,7 +131,15 @@ namespace Stash_Explorer
         {
             Settings settings = new Settings();
             settings.ShowDialog();
-            this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+            if (Properties.Settings.Default.Reload == true)
+            {
+                this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+            }
+            else
+            {
+
+            }
+            
         }
 
         private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)

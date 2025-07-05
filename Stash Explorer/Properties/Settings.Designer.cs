@@ -118,5 +118,17 @@ namespace Stash_Explorer.Properties {
                 this["StartupIDT"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Reload {
+            get {
+                return ((bool)(this["Reload"]));
+            }
+            set {
+                this["Reload"] = value;
+            }
+        }
     }
 }
