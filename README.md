@@ -19,6 +19,8 @@ Stash Explorer adds extra (external) functionality to your Stashapp instance.
 - 💻 **Instant Screen shots:** Right-click anywhere on your Stashapp to access a fully featured screen shotting tool (provided by WebView2).
 - 🔐 **Local, shareable user accounts:** (Coming Soon) Create local user accounts for your Stash Explorer with the ability to create and share for people to access your Stashapp instance. Please share responsibly!
 
+and more...
+
 ## Download
 
 You can see all pre-compiled versions on the [releases](https://github.com/windowslogic/Stash-Explorer/releases) page.
