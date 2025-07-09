@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Stash_Explorer
 {
@@ -22,7 +23,7 @@ namespace Stash_Explorer
         #region Variables
         void LoadContent()
         {
-            ContentTimer.Stop();
+            contentTimer.Stop();
             if (Properties.Settings.Default.DomainConfigured == false)
             {
                 webView21.Visible = false;
@@ -106,7 +107,7 @@ namespace Stash_Explorer
         #region Load Settings
         private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
         {
-            ContentTimer.Start();
+            contentTimer.Start();
         }
 
         private void ContentTimer_Tick(object sender, EventArgs e)
@@ -281,6 +282,11 @@ namespace Stash_Explorer
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Stash Explorer " + Application.ProductVersion + "\n\nContribute on the GitHub.\n\nLicensed under GPLv3.", "About Stash Explorer");
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/windowslogic/Stash-Explorer/releases");
         }
     }
 }
