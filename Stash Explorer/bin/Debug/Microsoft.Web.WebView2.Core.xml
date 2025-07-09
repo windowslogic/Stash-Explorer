@@ -3048,6 +3048,7 @@
             Used to manage profile options that created by <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateCoreWebView2ControllerOptions" />.</summary>
             <summary></summary>
             <summary></summary>
+            <summary></summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions.IsInPrivateModeEnabled">
             <summary>
@@ -3089,6 +3090,15 @@
             fail for colors with alpha values that don't equal 0 or 255.
             When WebView2 is set to be fully transparent, it does not render a background,
             allowing the content from windows behind it to be visible.</summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions.AllowHostInputProcessing">
+            <summary>`AllowHostInputProcessing` property is to enable/disable input passing through
+            the app before being delivered to the WebView2. This property is only applicable
+            to controllers created with `CoreWebView2Environment.CreateCoreWebView2ControllerAsync` and not
+            composition controllers created with `CoreWebView2Environment.CreateCoreWebView2CompositionControllerAsync`.
+            By default the value is `FALSE`.
+            Setting this property has no effect when using visual hosting.
+            \snippet AppWindow.cpp AllowHostInputProcessing</summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions.ScriptLocale">
             <summary>

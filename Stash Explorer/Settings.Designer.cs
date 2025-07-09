@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBoxReload = new System.Windows.Forms.GroupBox();
+            this.checkBoxReload = new System.Windows.Forms.CheckBox();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.SysTrayMinimiseBox = new System.Windows.Forms.CheckBox();
             this.Label7 = new System.Windows.Forms.Label();
@@ -50,15 +52,13 @@
             this.SystemTrayButton = new System.Windows.Forms.RadioButton();
             this.NothingButton = new System.Windows.Forms.RadioButton();
             this.Label6 = new System.Windows.Forms.Label();
-            this.groupBoxReload = new System.Windows.Forms.GroupBox();
-            this.checkBoxReload = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBoxReload.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBoxStartup.SuspendLayout();
-            this.groupBoxReload.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -83,6 +83,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stash Explorer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxReload
+            // 
+            this.groupBoxReload.Controls.Add(this.checkBoxReload);
+            this.groupBoxReload.Location = new System.Drawing.Point(6, 226);
+            this.groupBoxReload.Name = "groupBoxReload";
+            this.groupBoxReload.Size = new System.Drawing.Size(414, 51);
+            this.groupBoxReload.TabIndex = 4;
+            this.groupBoxReload.TabStop = false;
+            this.groupBoxReload.Text = "Other Settings";
+            // 
+            // checkBoxReload
+            // 
+            this.checkBoxReload.AutoSize = true;
+            this.checkBoxReload.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxReload.Location = new System.Drawing.Point(6, 24);
+            this.checkBoxReload.Name = "checkBoxReload";
+            this.checkBoxReload.Size = new System.Drawing.Size(235, 18);
+            this.checkBoxReload.TabIndex = 2;
+            this.checkBoxReload.Text = "Reload Stashapp when closing settings";
+            this.checkBoxReload.UseVisualStyleBackColor = true;
+            this.checkBoxReload.CheckedChanged += new System.EventHandler(this.checkBoxReload_CheckedChanged);
             // 
             // GroupBox4
             // 
@@ -297,28 +319,6 @@
             this.Label6.Text = "Set how you want Stash Explorer to start. When starting to a performer,\r\ngallery " +
     "or tag, use the ID corresponding to the item you want to start at.";
             // 
-            // groupBoxReload
-            // 
-            this.groupBoxReload.Controls.Add(this.checkBoxReload);
-            this.groupBoxReload.Location = new System.Drawing.Point(6, 226);
-            this.groupBoxReload.Name = "groupBoxReload";
-            this.groupBoxReload.Size = new System.Drawing.Size(414, 51);
-            this.groupBoxReload.TabIndex = 4;
-            this.groupBoxReload.TabStop = false;
-            this.groupBoxReload.Text = "Other Settings";
-            // 
-            // checkBoxReload
-            // 
-            this.checkBoxReload.AutoSize = true;
-            this.checkBoxReload.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxReload.Location = new System.Drawing.Point(6, 24);
-            this.checkBoxReload.Name = "checkBoxReload";
-            this.checkBoxReload.Size = new System.Drawing.Size(235, 18);
-            this.checkBoxReload.TabIndex = 2;
-            this.checkBoxReload.Text = "Reload Stashapp when closing settings";
-            this.checkBoxReload.UseVisualStyleBackColor = true;
-            this.checkBoxReload.CheckedChanged += new System.EventHandler(this.checkBoxReload_CheckedChanged);
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,12 +332,14 @@
             this.MinimizeBox = false;
             this.Name = "Settings";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Stash Explorer Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBoxReload.ResumeLayout(false);
+            this.groupBoxReload.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -345,8 +347,6 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
-            this.groupBoxReload.ResumeLayout(false);
-            this.groupBoxReload.PerformLayout();
             this.ResumeLayout(false);
 
         }

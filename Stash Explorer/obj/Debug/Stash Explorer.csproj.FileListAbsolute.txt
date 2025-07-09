@@ -19,3 +19,4 @@ J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csproj.CoreCo
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csproj.CopyComplete
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.exe
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.pdb
+J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash_Explorer.About.resources

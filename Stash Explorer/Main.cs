@@ -281,7 +281,8 @@ namespace Stash_Explorer
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Stash Explorer " + Application.ProductVersion + "\n\nContribute on the GitHub.\n\nLicensed under GPLv3.", "About Stash Explorer");
+            About about = new About();
+            about.ShowDialog();
         }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
