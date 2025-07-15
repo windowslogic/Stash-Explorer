@@ -154,6 +154,11 @@ namespace Stash_Explorer
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "scenes/new");
         }
 
+        private void createGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "groups/new");
+        }
+
         private void createGalleryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "gallery/new");
@@ -289,5 +294,7 @@ namespace Stash_Explorer
         {
             Process.Start("https://github.com/windowslogic/Stash-Explorer/releases");
         }
+
+        
     }
 }

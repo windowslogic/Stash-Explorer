@@ -98,7 +98,7 @@
             // 
             this.checkBoxReload.AutoSize = true;
             this.checkBoxReload.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxReload.Location = new System.Drawing.Point(6, 24);
+            this.checkBoxReload.Location = new System.Drawing.Point(9, 21);
             this.checkBoxReload.Name = "checkBoxReload";
             this.checkBoxReload.Size = new System.Drawing.Size(235, 18);
             this.checkBoxReload.TabIndex = 2;
