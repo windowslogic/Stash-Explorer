@@ -15,8 +15,9 @@ J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.Properties.
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.Settings.resources
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.GenerateResource.cache
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.CoreCompileInputs.cache
-J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.CopyComplete
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.exe
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.pdb
-J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csprojAssemblyReference.cache
 J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash_Explorer.About.resources
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.csproj.AssemblyReference.cache
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Explorer.exe.config
+J:\Projects\Stash Explorer\Stash Explorer\obj\Release\Stash Ex.DC928883.Up2Date
