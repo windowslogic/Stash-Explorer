@@ -35,6 +35,7 @@
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.createSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createGalleryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createPerformerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,10 +68,17 @@
             this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.createGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelPinned = new System.Windows.Forms.Panel();
+            this.linkManage = new System.Windows.Forms.LinkLabel();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.lbPinned = new System.Windows.Forms.ListBox();
+            this.lblPins = new System.Windows.Forms.Label();
+            this.btnPins = new System.Windows.Forms.Button();
+            this.btnPin = new System.Windows.Forms.Button();
             this.menuStripSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
+            this.panelPinned.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripSE
@@ -106,59 +114,66 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.newWindowToolStripMenuItem.Text = "&New window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
             // 
             // createSceneToolStripMenuItem
             // 
             this.createSceneToolStripMenuItem.Name = "createSceneToolStripMenuItem";
-            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.createSceneToolStripMenuItem.Text = "Create &scene";
             this.createSceneToolStripMenuItem.Click += new System.EventHandler(this.createSceneToolStripMenuItem_Click);
+            // 
+            // createGroupToolStripMenuItem
+            // 
+            this.createGroupToolStripMenuItem.Name = "createGroupToolStripMenuItem";
+            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createGroupToolStripMenuItem.Text = "Create gro&up";
+            this.createGroupToolStripMenuItem.Click += new System.EventHandler(this.createGroupToolStripMenuItem_Click);
             // 
             // createGalleryToolStripMenuItem
             // 
             this.createGalleryToolStripMenuItem.Name = "createGalleryToolStripMenuItem";
-            this.createGalleryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createGalleryToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.createGalleryToolStripMenuItem.Text = "Create &gallery";
             this.createGalleryToolStripMenuItem.Click += new System.EventHandler(this.createGalleryToolStripMenuItem_Click);
             // 
             // createPerformerToolStripMenuItem
             // 
             this.createPerformerToolStripMenuItem.Name = "createPerformerToolStripMenuItem";
-            this.createPerformerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createPerformerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.createPerformerToolStripMenuItem.Text = "Create &performer";
             this.createPerformerToolStripMenuItem.Click += new System.EventHandler(this.createPerformerToolStripMenuItem_Click);
             // 
             // createStudioToolStripMenuItem
             // 
             this.createStudioToolStripMenuItem.Name = "createStudioToolStripMenuItem";
-            this.createStudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createStudioToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.createStudioToolStripMenuItem.Text = "Create st&udio";
             this.createStudioToolStripMenuItem.Click += new System.EventHandler(this.createStudioToolStripMenuItem_Click);
             // 
             // createTagToolStripMenuItem
             // 
             this.createTagToolStripMenuItem.Name = "createTagToolStripMenuItem";
-            this.createTagToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createTagToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.createTagToolStripMenuItem.Text = "Create &tag";
             this.createTagToolStripMenuItem.Click += new System.EventHandler(this.createTagToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -230,7 +245,6 @@
             // 
             // titleTimer
             // 
-            this.titleTimer.Enabled = true;
             this.titleTimer.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // webView21
@@ -358,18 +372,98 @@
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
-            // createGroupToolStripMenuItem
+            // panelPinned
             // 
-            this.createGroupToolStripMenuItem.Name = "createGroupToolStripMenuItem";
-            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createGroupToolStripMenuItem.Text = "Create gro&up";
-            this.createGroupToolStripMenuItem.Click += new System.EventHandler(this.createGroupToolStripMenuItem_Click);
+            this.panelPinned.Controls.Add(this.linkManage);
+            this.panelPinned.Controls.Add(this.btnOpen);
+            this.panelPinned.Controls.Add(this.lbPinned);
+            this.panelPinned.Controls.Add(this.lblPins);
+            this.panelPinned.Location = new System.Drawing.Point(580, 24);
+            this.panelPinned.Name = "panelPinned";
+            this.panelPinned.Size = new System.Drawing.Size(224, 427);
+            this.panelPinned.TabIndex = 3;
+            this.panelPinned.Visible = false;
+            // 
+            // linkManage
+            // 
+            this.linkManage.AutoSize = true;
+            this.linkManage.Location = new System.Drawing.Point(4, 401);
+            this.linkManage.Name = "linkManage";
+            this.linkManage.Size = new System.Drawing.Size(83, 13);
+            this.linkManage.TabIndex = 7;
+            this.linkManage.TabStop = true;
+            this.linkManage.Text = "Manage pins...";
+            this.linkManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkManage_LinkClicked);
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(137, 396);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 6;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // lbPinned
+            // 
+            this.lbPinned.FormattingEnabled = true;
+            this.lbPinned.Location = new System.Drawing.Point(3, 35);
+            this.lbPinned.Name = "lbPinned";
+            this.lbPinned.Size = new System.Drawing.Size(218, 355);
+            this.lbPinned.TabIndex = 5;
+            this.lbPinned.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbPinned_MouseDoubleClick);
+            // 
+            // lblPins
+            // 
+            this.lblPins.AutoSize = true;
+            this.lblPins.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPins.Location = new System.Drawing.Point(3, 7);
+            this.lblPins.Name = "lblPins";
+            this.lblPins.Size = new System.Drawing.Size(139, 21);
+            this.lblPins.TabIndex = 0;
+            this.lblPins.Text = "Pinned Performers";
+            // 
+            // btnPins
+            // 
+            this.btnPins.FlatAppearance.BorderSize = 0;
+            this.btnPins.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPins.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPins.Location = new System.Drawing.Point(767, 0);
+            this.btnPins.Name = "btnPins";
+            this.btnPins.Size = new System.Drawing.Size(37, 23);
+            this.btnPins.TabIndex = 4;
+            this.btnPins.Text = "Pins";
+            this.btnPins.UseVisualStyleBackColor = true;
+            this.btnPins.Click += new System.EventHandler(this.btnPins_Click);
+            this.btnPins.MouseLeave += new System.EventHandler(this.btnPins_MouseLeave);
+            this.btnPins.MouseHover += new System.EventHandler(this.btnPins_MouseHover);
+            // 
+            // btnPin
+            // 
+            this.btnPin.FlatAppearance.BorderSize = 0;
+            this.btnPin.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPin.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPin.Location = new System.Drawing.Point(677, 0);
+            this.btnPin.Name = "btnPin";
+            this.btnPin.Size = new System.Drawing.Size(84, 23);
+            this.btnPin.TabIndex = 5;
+            this.btnPin.Text = "Pin Performer";
+            this.btnPin.UseVisualStyleBackColor = true;
+            this.btnPin.Click += new System.EventHandler(this.btnPin_Click);
+            this.btnPin.MouseLeave += new System.EventHandler(this.btnPin_MouseLeave);
+            this.btnPin.MouseHover += new System.EventHandler(this.btnPin_MouseHover);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.btnPin);
+            this.Controls.Add(this.btnPins);
+            this.Controls.Add(this.panelPinned);
             this.Controls.Add(this.webView21);
             this.Controls.Add(this.menuStripSE);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -383,6 +477,8 @@
             this.menuStripSE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.sysTrayMenu.ResumeLayout(false);
+            this.panelPinned.ResumeLayout(false);
+            this.panelPinned.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,6 +523,13 @@
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem createGroupToolStripMenuItem;
+        private System.Windows.Forms.Panel panelPinned;
+        private System.Windows.Forms.Label lblPins;
+        private System.Windows.Forms.ListBox lbPinned;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnPins;
+        private System.Windows.Forms.Button btnPin;
+        private System.Windows.Forms.LinkLabel linkManage;
     }
 }
 

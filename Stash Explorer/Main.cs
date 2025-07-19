@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Stash_Explorer
 {
@@ -43,6 +43,7 @@ namespace Stash_Explorer
             {
                 WVSNavigate();
             }
+            titleTimer.Start();
         }
 
         void WVSNavigate()
@@ -118,13 +119,24 @@ namespace Stash_Explorer
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            // Attempts to show the document title on the window title bar.
             try
             {
                 this.Text = webView21.CoreWebView2.DocumentTitle + " - Stash Explorer";
             }
             catch
             {
+                MessageBox.Show("Unable to update Stash Explorer window title.");
+            }
 
+            // Checks to see if the current page is a performer page to enable pinning.
+            if (webView21.CoreWebView2.DocumentTitle.Contains("| Performers"))
+            {
+                btnPin.Enabled = true;
+            }
+            else
+            {
+                btnPin.Enabled = false;
             }
         }
 
@@ -295,6 +307,86 @@ namespace Stash_Explorer
             Process.Start("https://github.com/windowslogic/Stash-Explorer/releases");
         }
 
-        
+        #region Pins
+        private void btnPin_Click(object sender, EventArgs e)
+        {
+
+            // Pins the performer to the settings.
+            string pinSource = webView21.Source.ToString();
+            Properties.Settings.Default.Pins.Add(pinSource);
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnPins_Click(object sender, EventArgs e)
+        {
+            // Checks if the panel is open, then populates the listbox for pinned items.
+            if (panelPinned.Visible == false)
+            {
+                panelPinned.Visible = true;
+                foreach (string item in Properties.Settings.Default.Pins)
+                {
+                    lbPinned.Items.Add(item);
+                }
+                panelPinned.BringToFront();
+            }
+            else
+            {
+                panelPinned.Visible = false;
+                lbPinned.Items.Clear();
+            }
+        }
+
+        void openPinned()
+        {
+            // Attempts to open the performer which is double-clicked on.
+            try
+            {
+                webView21.CoreWebView2.Navigate(lbPinned.SelectedItem.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Unable to navigate to selected performer.");
+            }
+        }
+
+        private void lbPinned_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            openPinned();
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            openPinned();
+        }
+
+        private void linkManage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.tabControl1.SelectedTab = settings.tpPins;
+            settings.ShowDialog();
+        }
+
+        private void btnPins_MouseHover(object sender, EventArgs e)
+        {
+            btnPins.ForeColor = Color.White;
+        }
+
+        private void btnPins_MouseLeave(object sender, EventArgs e)
+        {
+            btnPins.ForeColor = Color.Black;
+        }
+
+        private void btnPin_MouseHover(object sender, EventArgs e)
+        {
+            btnPin.ForeColor = Color.White;
+        }
+
+        private void btnPin_MouseLeave(object sender, EventArgs e)
+        {
+            btnPin.ForeColor = Color.Black;
+        }
+        #endregion
+
+
     }
 }

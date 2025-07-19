@@ -88,7 +88,12 @@ namespace Stash_Explorer
                     break;
             }
 
-
+            // Populate pin settings.
+            lbPinned.Items.Clear();
+            foreach (string item in Properties.Settings.Default.Pins)
+            {
+                lbPinned.Items.Add(item);
+            }
         }
 
         private void Settings_FormClosing(object sender, FormClosingEventArgs e)

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpStash = new System.Windows.Forms.TabPage();
             this.groupBoxReload = new System.Windows.Forms.GroupBox();
             this.checkBoxReload = new System.Windows.Forms.CheckBox();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
@@ -41,7 +41,7 @@
             this.labelURLExplain = new System.Windows.Forms.Label();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.labelURL = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpStart = new System.Windows.Forms.TabPage();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.textBoxTag = new System.Windows.Forms.TextBox();
             this.textBoxGallery = new System.Windows.Forms.TextBox();
@@ -52,37 +52,47 @@
             this.SystemTrayButton = new System.Windows.Forms.RadioButton();
             this.NothingButton = new System.Windows.Forms.RadioButton();
             this.Label6 = new System.Windows.Forms.Label();
+            this.tpPins = new System.Windows.Forms.TabPage();
+            this.FavouritesLabel = new System.Windows.Forms.Label();
+            this.gbPins = new System.Windows.Forms.GroupBox();
+            this.lbPinned = new System.Windows.Forms.ListBox();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpStash.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpStart.SuspendLayout();
             this.groupBoxStartup.SuspendLayout();
+            this.tpPins.SuspendLayout();
+            this.gbPins.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tpStash);
+            this.tabControl1.Controls.Add(this.tpStart);
+            this.tabControl1.Controls.Add(this.tpPins);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(434, 309);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tpStash
             // 
-            this.tabPage1.Controls.Add(this.groupBoxReload);
-            this.tabPage1.Controls.Add(this.GroupBox4);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(426, 283);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Stash Explorer";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpStash.Controls.Add(this.groupBoxReload);
+            this.tpStash.Controls.Add(this.GroupBox4);
+            this.tpStash.Controls.Add(this.groupBox1);
+            this.tpStash.Location = new System.Drawing.Point(4, 22);
+            this.tpStash.Name = "tpStash";
+            this.tpStash.Padding = new System.Windows.Forms.Padding(3);
+            this.tpStash.Size = new System.Drawing.Size(426, 283);
+            this.tpStash.TabIndex = 0;
+            this.tpStash.Text = "Stash Explorer";
+            this.tpStash.UseVisualStyleBackColor = true;
             // 
             // groupBoxReload
             // 
@@ -188,16 +198,16 @@
             this.labelURL.TabIndex = 1;
             this.labelURL.Text = "Stashapp Location:";
             // 
-            // tabPage2
+            // tpStart
             // 
-            this.tabPage2.Controls.Add(this.groupBoxStartup);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(426, 283);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Start-up";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpStart.Controls.Add(this.groupBoxStartup);
+            this.tpStart.Location = new System.Drawing.Point(4, 22);
+            this.tpStart.Name = "tpStart";
+            this.tpStart.Padding = new System.Windows.Forms.Padding(3);
+            this.tpStart.Size = new System.Drawing.Size(426, 283);
+            this.tpStart.TabIndex = 1;
+            this.tpStart.Text = "Start-up";
+            this.tpStart.UseVisualStyleBackColor = true;
             // 
             // groupBoxStartup
             // 
@@ -319,6 +329,75 @@
             this.Label6.Text = "Set how you want Stash Explorer to start. When starting to a performer,\r\ngallery " +
     "or tag, use the ID corresponding to the item you want to start at.";
             // 
+            // tpPins
+            // 
+            this.tpPins.Controls.Add(this.gbPins);
+            this.tpPins.Location = new System.Drawing.Point(4, 22);
+            this.tpPins.Name = "tpPins";
+            this.tpPins.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPins.Size = new System.Drawing.Size(426, 283);
+            this.tpPins.TabIndex = 2;
+            this.tpPins.Text = "Pins";
+            this.tpPins.UseVisualStyleBackColor = true;
+            // 
+            // FavouritesLabel
+            // 
+            this.FavouritesLabel.AutoSize = true;
+            this.FavouritesLabel.Location = new System.Drawing.Point(6, 18);
+            this.FavouritesLabel.Name = "FavouritesLabel";
+            this.FavouritesLabel.Size = new System.Drawing.Size(402, 52);
+            this.FavouritesLabel.TabIndex = 3;
+            this.FavouritesLabel.Text = resources.GetString("FavouritesLabel.Text");
+            // 
+            // gbPins
+            // 
+            this.gbPins.Controls.Add(this.btnDel);
+            this.gbPins.Controls.Add(this.btnDelAll);
+            this.gbPins.Controls.Add(this.btnOpen);
+            this.gbPins.Controls.Add(this.lbPinned);
+            this.gbPins.Controls.Add(this.FavouritesLabel);
+            this.gbPins.Location = new System.Drawing.Point(6, 6);
+            this.gbPins.Name = "gbPins";
+            this.gbPins.Size = new System.Drawing.Size(414, 271);
+            this.gbPins.TabIndex = 4;
+            this.gbPins.TabStop = false;
+            this.gbPins.Text = "Pin Settings";
+            // 
+            // lbPinned
+            // 
+            this.lbPinned.FormattingEnabled = true;
+            this.lbPinned.Location = new System.Drawing.Point(6, 73);
+            this.lbPinned.Name = "lbPinned";
+            this.lbPinned.Size = new System.Drawing.Size(402, 160);
+            this.lbPinned.TabIndex = 4;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(6, 239);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 5;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Location = new System.Drawing.Point(333, 239);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(75, 23);
+            this.btnDelAll.TabIndex = 6;
+            this.btnDelAll.Text = "Delete All";
+            this.btnDelAll.UseVisualStyleBackColor = true;
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(252, 239);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.TabIndex = 7;
+            this.btnDel.Text = "Delete All";
+            this.btnDel.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,25 +416,24 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tpStash.ResumeLayout(false);
             this.groupBoxReload.ResumeLayout(false);
             this.groupBoxReload.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tpStart.ResumeLayout(false);
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
+            this.tpPins.ResumeLayout(false);
+            this.gbPins.ResumeLayout(false);
+            this.gbPins.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label labelURL;
         private System.Windows.Forms.TextBox textBoxURL;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -376,5 +454,15 @@
         internal System.Windows.Forms.Label Label7;
         private System.Windows.Forms.GroupBox groupBoxReload;
         private System.Windows.Forms.CheckBox checkBoxReload;
+        internal System.Windows.Forms.Label FavouritesLabel;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.ListBox lbPinned;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnDelAll;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tpStash;
+        public System.Windows.Forms.TabPage tpStart;
+        public System.Windows.Forms.GroupBox gbPins;
+        public System.Windows.Forms.TabPage tpPins;
     }
 }
