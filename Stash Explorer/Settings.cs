@@ -216,5 +216,36 @@ namespace Stash_Explorer
                 Properties.Settings.Default.Reload = false;
             }
         }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.openPinned();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int item = Properties.Settings.Default.Pins.IndexOf(lbPinned.SelectedItem.ToString());
+                Properties.Settings.Default.Pins.RemoveAt(item);
+                lbPinned.Items.Remove(lbPinned.SelectedItem);
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to deleted selected pin.");
+            }
+        }
+
+        private void btnDelAll_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete all pinned performers?", "Clear Pins", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Properties.Settings.Default.Pins.Clear();
+                lbPinned.Items.Clear();
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

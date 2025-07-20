@@ -37,7 +37,7 @@
             this.SysTrayMinimiseBox = new System.Windows.Forms.CheckBox();
             this.Label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWarning = new System.Windows.Forms.Label();
             this.labelURLExplain = new System.Windows.Forms.Label();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.labelURL = new System.Windows.Forms.Label();
@@ -53,12 +53,13 @@
             this.NothingButton = new System.Windows.Forms.RadioButton();
             this.Label6 = new System.Windows.Forms.Label();
             this.tpPins = new System.Windows.Forms.TabPage();
-            this.FavouritesLabel = new System.Windows.Forms.Label();
             this.gbPins = new System.Windows.Forms.GroupBox();
-            this.lbPinned = new System.Windows.Forms.ListBox();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.lbPinned = new System.Windows.Forms.ListBox();
+            this.FavouritesLabel = new System.Windows.Forms.Label();
+            this.lblSaveReminder = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpStash.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
@@ -151,7 +152,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblWarning);
             this.groupBox1.Controls.Add(this.labelURLExplain);
             this.groupBox1.Controls.Add(this.textBoxURL);
             this.groupBox1.Controls.Add(this.labelURL);
@@ -162,15 +163,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stashapp Location Settings";
             // 
-            // label1
+            // lblWarning
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(6, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 26);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "WARNING: Your Stashapp URL must be formatted like the example above.\r\nIf not, you" +
+            this.lblWarning.AutoSize = true;
+            this.lblWarning.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning.Location = new System.Drawing.Point(6, 94);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(382, 26);
+            this.lblWarning.TabIndex = 3;
+            this.lblWarning.Text = "WARNING: Your Stashapp URL must be formatted like the example above.\r\nIf not, you" +
     " could break the navigation in this app.";
             // 
             // labelURLExplain
@@ -340,15 +341,6 @@
             this.tpPins.Text = "Pins";
             this.tpPins.UseVisualStyleBackColor = true;
             // 
-            // FavouritesLabel
-            // 
-            this.FavouritesLabel.AutoSize = true;
-            this.FavouritesLabel.Location = new System.Drawing.Point(6, 18);
-            this.FavouritesLabel.Name = "FavouritesLabel";
-            this.FavouritesLabel.Size = new System.Drawing.Size(402, 52);
-            this.FavouritesLabel.TabIndex = 3;
-            this.FavouritesLabel.Text = resources.GetString("FavouritesLabel.Text");
-            // 
             // gbPins
             // 
             this.gbPins.Controls.Add(this.btnDel);
@@ -363,22 +355,15 @@
             this.gbPins.TabStop = false;
             this.gbPins.Text = "Pin Settings";
             // 
-            // lbPinned
+            // btnDel
             // 
-            this.lbPinned.FormattingEnabled = true;
-            this.lbPinned.Location = new System.Drawing.Point(6, 73);
-            this.lbPinned.Name = "lbPinned";
-            this.lbPinned.Size = new System.Drawing.Size(402, 160);
-            this.lbPinned.TabIndex = 4;
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(6, 239);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 5;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnDel.Location = new System.Drawing.Point(252, 239);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.TabIndex = 7;
+            this.btnDel.Text = "Delete All";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnDelAll
             // 
@@ -388,21 +373,50 @@
             this.btnDelAll.TabIndex = 6;
             this.btnDelAll.Text = "Delete All";
             this.btnDelAll.UseVisualStyleBackColor = true;
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
             // 
-            // btnDel
+            // btnOpen
             // 
-            this.btnDel.Location = new System.Drawing.Point(252, 239);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
-            this.btnDel.TabIndex = 7;
-            this.btnDel.Text = "Delete All";
-            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnOpen.Location = new System.Drawing.Point(6, 239);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 5;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // lbPinned
+            // 
+            this.lbPinned.FormattingEnabled = true;
+            this.lbPinned.Location = new System.Drawing.Point(6, 73);
+            this.lbPinned.Name = "lbPinned";
+            this.lbPinned.Size = new System.Drawing.Size(402, 160);
+            this.lbPinned.TabIndex = 4;
+            // 
+            // FavouritesLabel
+            // 
+            this.FavouritesLabel.AutoSize = true;
+            this.FavouritesLabel.Location = new System.Drawing.Point(6, 18);
+            this.FavouritesLabel.Name = "FavouritesLabel";
+            this.FavouritesLabel.Size = new System.Drawing.Size(402, 52);
+            this.FavouritesLabel.TabIndex = 3;
+            this.FavouritesLabel.Text = resources.GetString("FavouritesLabel.Text");
+            // 
+            // lblSaveReminder
+            // 
+            this.lblSaveReminder.AutoSize = true;
+            this.lblSaveReminder.Location = new System.Drawing.Point(289, 10);
+            this.lblSaveReminder.Name = "lblSaveReminder";
+            this.lblSaveReminder.Size = new System.Drawing.Size(152, 13);
+            this.lblSaveReminder.TabIndex = 5;
+            this.lblSaveReminder.Text = " Settings are saved on close.";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 334);
+            this.Controls.Add(this.lblSaveReminder);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -430,6 +444,7 @@
             this.gbPins.ResumeLayout(false);
             this.gbPins.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -438,7 +453,7 @@
         private System.Windows.Forms.TextBox textBoxURL;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelURLExplain;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.GroupBox groupBoxStartup;
         internal System.Windows.Forms.RadioButton radioButtonTag;
         internal System.Windows.Forms.RadioButton radioButtonGallery;
@@ -464,5 +479,6 @@
         public System.Windows.Forms.TabPage tpStart;
         public System.Windows.Forms.GroupBox gbPins;
         public System.Windows.Forms.TabPage tpPins;
+        private System.Windows.Forms.Label lblSaveReminder;
     }
 }

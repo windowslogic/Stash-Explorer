@@ -336,7 +336,7 @@ namespace Stash_Explorer
             }
         }
 
-        void openPinned()
+        public void openPinned()
         {
             // Attempts to open the performer which is double-clicked on.
             try
