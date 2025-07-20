@@ -144,5 +144,29 @@ namespace Stash_Explorer.Properties {
                 this["Pins"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ContShield {
+            get {
+                return ((int)(this["ContShield"]));
+            }
+            set {
+                this["ContShield"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ContShieldTime {
+            get {
+                return ((int)(this["ContShieldTime"]));
+            }
+            set {
+                this["ContShieldTime"] = value;
+            }
+        }
     }
 }

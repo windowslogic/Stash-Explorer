@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelURLExplain.Text" xml:space="preserve">
+    <value>By default, your Stashapp exists at https://localhost:9999/.
+Here you can change it to another location if you've port-forwarded your
+instance, or want to access it from another computer on your network.</value>
+  </data>
   <data name="FavouritesLabel.Text" xml:space="preserve">
     <value>Below is a list of performers you have saved. To go to a saved performer, click
 the performer you want to go to, then click 'Open' or alternatively,
 double-click the performer. To delete a saved performer, click 'Delete'. To
 delete all saved performers, click 'Delete All'.</value>
-  </data>
-  <data name="labelURLExplain.Text" xml:space="preserve">
-    <value>By default, your Stashapp exists at https://localhost:9999/.
-Here you can change it to another location if you've port-forwarded your
-instance, or want to access it from another computer on your network.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

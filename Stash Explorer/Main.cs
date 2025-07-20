@@ -222,6 +222,21 @@ namespace Stash_Explorer
 
         private void Main_Resize(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.ContShield == 1)
+            {
+                panelContShield.Visible = true;
+                panelContShield.BringToFront();
+            }
+            else if (Properties.Settings.Default.ContShield == 2)
+            {
+                panelContShield.Visible = true;
+                panelContShield.BringToFront();
+            }
+            else
+            {
+
+            }
+
             if (Properties.Settings.Default.SysTrayMinimise == true)
             {
                 if (WindowState == FormWindowState.Minimized)
@@ -385,8 +400,30 @@ namespace Stash_Explorer
         {
             btnPin.ForeColor = Color.Black;
         }
+
         #endregion
 
+        // Content shield timer bullshit.
+        private void panelContShield_MouseEnter(object sender, EventArgs e)
+        {
+            panelContShield.Visible = false;
+            timerContShield.Stop();
+        }
 
+        private void timerContShield_Tick(object sender, EventArgs e)
+        {
+            if (RectangleToScreen(Bounds).Contains(PointToScreen(Cursor.Position)) == false)
+            {
+                panelContShield.Visible = true;
+            }
+        }
+
+        private void Main_MouseLeave(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.ContShield == 3)
+            {
+                timerContShield.Start();
+            }
+        }
     }
 }

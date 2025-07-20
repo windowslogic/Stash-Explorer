@@ -75,10 +75,14 @@
             this.lblPins = new System.Windows.Forms.Label();
             this.btnPins = new System.Windows.Forms.Button();
             this.btnPin = new System.Windows.Forms.Button();
+            this.timerContShield = new System.Windows.Forms.Timer(this.components);
+            this.panelContShield = new System.Windows.Forms.Panel();
+            this.lblContShield = new System.Windows.Forms.Label();
             this.menuStripSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
             this.panelPinned.SuspendLayout();
+            this.panelContShield.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripSE
@@ -456,11 +460,38 @@
             this.btnPin.MouseLeave += new System.EventHandler(this.btnPin_MouseLeave);
             this.btnPin.MouseHover += new System.EventHandler(this.btnPin_MouseHover);
             // 
+            // timerContShield
+            // 
+            this.timerContShield.Interval = 1000;
+            this.timerContShield.Tick += new System.EventHandler(this.timerContShield_Tick);
+            // 
+            // panelContShield
+            // 
+            this.panelContShield.BackColor = System.Drawing.Color.Black;
+            this.panelContShield.Controls.Add(this.lblContShield);
+            this.panelContShield.Location = new System.Drawing.Point(0, 24);
+            this.panelContShield.Name = "panelContShield";
+            this.panelContShield.Size = new System.Drawing.Size(804, 427);
+            this.panelContShield.TabIndex = 6;
+            this.panelContShield.MouseEnter += new System.EventHandler(this.panelContShield_MouseEnter);
+            // 
+            // lblContShield
+            // 
+            this.lblContShield.AutoSize = true;
+            this.lblContShield.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContShield.ForeColor = System.Drawing.Color.White;
+            this.lblContShield.Location = new System.Drawing.Point(288, 195);
+            this.lblContShield.Name = "lblContShield";
+            this.lblContShield.Size = new System.Drawing.Size(228, 37);
+            this.lblContShield.TabIndex = 0;
+            this.lblContShield.Text = "CONTENT SHIELD";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.panelContShield);
             this.Controls.Add(this.btnPin);
             this.Controls.Add(this.btnPins);
             this.Controls.Add(this.panelPinned);
@@ -472,6 +503,7 @@
             this.MinimumSize = new System.Drawing.Size(820, 490);
             this.Name = "Main";
             this.Text = "Stash Explorer";
+            this.MouseLeave += new System.EventHandler(this.Main_MouseLeave);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.menuStripSE.ResumeLayout(false);
             this.menuStripSE.PerformLayout();
@@ -479,6 +511,8 @@
             this.sysTrayMenu.ResumeLayout(false);
             this.panelPinned.ResumeLayout(false);
             this.panelPinned.PerformLayout();
+            this.panelContShield.ResumeLayout(false);
+            this.panelContShield.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,6 +564,9 @@
         private System.Windows.Forms.Button btnPins;
         private System.Windows.Forms.Button btnPin;
         private System.Windows.Forms.LinkLabel linkManage;
+        private System.Windows.Forms.Panel panelContShield;
+        private System.Windows.Forms.Label lblContShield;
+        public System.Windows.Forms.Timer timerContShield;
     }
 }
 

@@ -13,6 +13,7 @@ namespace Stash_Explorer
 {
     public partial class Settings : Form
     {
+        #region Variables
         public Settings()
         {
             InitializeComponent();
@@ -27,12 +28,14 @@ namespace Stash_Explorer
                 e.Handled = true;
             }
         }
-
+        #endregion
+        #region Load Settings
         private void Settings_Load(object sender, EventArgs e)
         {
-            // Load Settings.
+            // Load user domain settings.
             textBoxURL.Text = Properties.Settings.Default.Domain;
 
+            // Load user minimising settings.
             if (Properties.Settings.Default.SysTrayMinimise == true)
             {
                 SysTrayMinimiseBox.Checked = true;
@@ -51,6 +54,7 @@ namespace Stash_Explorer
                 checkBoxReload.Checked = false;
             }
 
+            // Load user startup settings.
             switch (Properties.Settings.Default.Startup)
             {
                 case 0:
@@ -88,50 +92,59 @@ namespace Stash_Explorer
                     break;
             }
 
-            // Populate pin settings.
+            // Load and populate user pin settings.
             lbPinned.Items.Clear();
             foreach (string item in Properties.Settings.Default.Pins)
             {
                 lbPinned.Items.Add(item);
             }
-        }
 
-        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Save settings on form close automatically.
-            if (Properties.Settings.Default.DomainConfigured == false)
+            // Load user content shield settings.
+            switch (Properties.Settings.Default.ContShield)
             {
-                Properties.Settings.Default.DomainConfigured = true;
+                case 0:
+                    rbDNSC.Checked = true;
+                    break;
+                case 1:
+                    rbSCM.Checked = true;
+                    break;
+                case 2:
+                    rbSCMB.Checked = true;
+                    break;
+                case 3:
+                    rbSCAT.Checked = true;
+                    break;
+            }
+        }
+        #endregion
+        #region Stash Explorer
+        // Toggle minimising behaviour.
+        private void SysTrayMinimiseBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SysTrayMinimiseBox.Checked == true)
+            {
+                Properties.Settings.Default.SysTrayMinimise = true;
             }
             else
             {
-
+                Properties.Settings.Default.SysTrayMinimise = false;
             }
-
-            switch (Properties.Settings.Default.Startup)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    Properties.Settings.Default.StartupIDP = textBoxPerformer.Text;
-                    Properties.Settings.Default.StartupToDest = "performers/" + Properties.Settings.Default.StartupIDP;
-                    break;
-                case 3:
-                    Properties.Settings.Default.StartupIDG = textBoxGallery.Text;
-                    Properties.Settings.Default.StartupToDest = "galleries/" + Properties.Settings.Default.StartupIDG;
-                    break;
-                case 4:
-                    Properties.Settings.Default.StartupIDT = textBoxTag.Text;
-                    Properties.Settings.Default.StartupToDest = "tags/" + Properties.Settings.Default.StartupIDT;
-                    break;
-            }
-
-            Properties.Settings.Default.Domain = textBoxURL.Text;
-            Properties.Settings.Default.Save();
         }
 
+        // Toggle WebView2 reload on settings exit.
+        private void checkBoxReload_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxReload.Checked == true)
+            {
+                Properties.Settings.Default.Reload = true;
+            }
+            else
+            {
+                Properties.Settings.Default.Reload = false;
+            }
+        }
+        #endregion
+        #region Start-up
         private void NothingButton_CheckedChanged(object sender, EventArgs e)
         {
             if (NothingButton.Checked == true)
@@ -178,18 +191,6 @@ namespace Stash_Explorer
             Properties.Settings.Default.Startup = 4;
         }
 
-        private void SysTrayMinimiseBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (SysTrayMinimiseBox.Checked == true)
-            {
-                Properties.Settings.Default.SysTrayMinimise = true;
-            }
-            else
-            {
-                Properties.Settings.Default.SysTrayMinimise = false;
-            }
-        }
-
         private void textBoxPerformer_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckChars(e);
@@ -204,19 +205,8 @@ namespace Stash_Explorer
         {
             CheckChars(e);
         }
-
-        private void checkBoxReload_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxReload.Checked == true)
-            {
-                Properties.Settings.Default.Reload = true;
-            }
-            else
-            {
-                Properties.Settings.Default.Reload = false;
-            }
-        }
-
+        #endregion
+        #region Pins
         private void btnOpen_Click(object sender, EventArgs e)
         {
             Main main = new Main();
@@ -247,5 +237,123 @@ namespace Stash_Explorer
                 Properties.Settings.Default.Save();
             }
         }
+        #endregion
+        #region Content Shield
+        private void rbDNSC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDNSC.Checked == true)
+            {
+                Properties.Settings.Default.ContShield = 0;
+            }
+        }
+
+        private void rbSCM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSCM.Checked == true)
+            {
+                Properties.Settings.Default.ContShield = 1;
+            }
+        }
+
+        private void rbSCMB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSCMB.Checked == true)
+            {
+                Properties.Settings.Default.ContShield = 2;
+            }
+        }
+
+        private void rbSCAT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSCAT.Checked == true)
+            {
+                Properties.Settings.Default.ContShield = 3;
+                gbCSTimer.Enabled = true;
+            }
+            else
+            {
+                gbCSTimer.Enabled = false;
+            }
+        }
+
+        private void rb1min_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb1min.Checked == true)
+            {
+                Properties.Settings.Default.ContShieldTime = 60000;
+            }
+        }
+
+        private void rb5min_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb5min.Checked == true)
+            {
+                Properties.Settings.Default.ContShieldTime = 300000;
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb10min.Checked == true)
+            {
+                Properties.Settings.Default.ContShieldTime = 600000;
+            }
+        }
+        #endregion
+        #region Other
+        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Save settings on form close automatically.
+            if (Properties.Settings.Default.DomainConfigured == false)
+            {
+                Properties.Settings.Default.DomainConfigured = true;
+            }
+            else
+            {
+
+            }
+
+            switch (Properties.Settings.Default.Startup)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    Properties.Settings.Default.StartupIDP = textBoxPerformer.Text;
+                    Properties.Settings.Default.StartupToDest = "performers/" + Properties.Settings.Default.StartupIDP;
+                    break;
+                case 3:
+                    Properties.Settings.Default.StartupIDG = textBoxGallery.Text;
+                    Properties.Settings.Default.StartupToDest = "galleries/" + Properties.Settings.Default.StartupIDG;
+                    break;
+                case 4:
+                    Properties.Settings.Default.StartupIDT = textBoxTag.Text;
+                    Properties.Settings.Default.StartupToDest = "tags/" + Properties.Settings.Default.StartupIDT;
+                    break;
+            }
+
+            switch (Properties.Settings.Default.ContShieldTime)
+            {
+                case 60000:
+                    Main main1min = new Main();
+                    main1min.timerContShield.Interval = 300000;
+                    break;
+                case 300000:
+                    Main main5min = new Main();
+                    main5min.timerContShield.Interval = 300000;
+                    break;
+                case 600000:
+                    Main main10min = new Main();
+                    main10min.timerContShield.Interval = 600000;
+                    break;
+            }
+
+            Properties.Settings.Default.Domain = textBoxURL.Text;
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+
+        
     }
 }
