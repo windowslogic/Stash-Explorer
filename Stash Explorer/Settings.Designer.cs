@@ -66,13 +66,7 @@
             this.lblSaveReminder = new System.Windows.Forms.Label();
             this.rbSCM = new System.Windows.Forms.RadioButton();
             this.rbSCMB = new System.Windows.Forms.RadioButton();
-            this.rbSCAT = new System.Windows.Forms.RadioButton();
             this.rbDNSC = new System.Windows.Forms.RadioButton();
-            this.gbCSTimer = new System.Windows.Forms.GroupBox();
-            this.rb5min = new System.Windows.Forms.RadioButton();
-            this.rb1min = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rb10min = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tpStash.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
@@ -84,7 +78,6 @@
             this.gbPins.SuspendLayout();
             this.tpContShield.SuspendLayout();
             this.gbContShield.SuspendLayout();
-            this.gbCSTimer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -432,16 +425,14 @@
             // 
             // gbContShield
             // 
-            this.gbContShield.Controls.Add(this.gbCSTimer);
             this.gbContShield.Controls.Add(this.rbDNSC);
             this.gbContShield.Controls.Add(this.checkBox1);
             this.gbContShield.Controls.Add(this.rbSCM);
-            this.gbContShield.Controls.Add(this.rbSCAT);
             this.gbContShield.Controls.Add(this.lblContShield);
             this.gbContShield.Controls.Add(this.rbSCMB);
             this.gbContShield.Location = new System.Drawing.Point(6, 6);
             this.gbContShield.Name = "gbContShield";
-            this.gbContShield.Size = new System.Drawing.Size(414, 187);
+            this.gbContShield.Size = new System.Drawing.Size(414, 126);
             this.gbContShield.TabIndex = 4;
             this.gbContShield.TabStop = false;
             this.gbContShield.Text = "Content Shield Settings";
@@ -499,18 +490,6 @@
             this.rbSCMB.UseVisualStyleBackColor = true;
             this.rbSCMB.CheckedChanged += new System.EventHandler(this.rbSCMB_CheckedChanged);
             // 
-            // rbSCAT
-            // 
-            this.rbSCAT.AutoSize = true;
-            this.rbSCAT.Location = new System.Drawing.Point(9, 145);
-            this.rbSCAT.Name = "rbSCAT";
-            this.rbSCAT.Size = new System.Drawing.Size(200, 17);
-            this.rbSCAT.TabIndex = 4;
-            this.rbSCAT.TabStop = true;
-            this.rbSCAT.Text = "Shield content after selected time:";
-            this.rbSCAT.UseVisualStyleBackColor = true;
-            this.rbSCAT.CheckedChanged += new System.EventHandler(this.rbSCAT_CheckedChanged);
-            // 
             // rbDNSC
             // 
             this.rbDNSC.AutoSize = true;
@@ -522,65 +501,6 @@
             this.rbDNSC.Text = "Do not shield content";
             this.rbDNSC.UseVisualStyleBackColor = true;
             this.rbDNSC.CheckedChanged += new System.EventHandler(this.rbDNSC_CheckedChanged);
-            // 
-            // gbCSTimer
-            // 
-            this.gbCSTimer.Controls.Add(this.rb10min);
-            this.gbCSTimer.Controls.Add(this.label1);
-            this.gbCSTimer.Controls.Add(this.rb1min);
-            this.gbCSTimer.Controls.Add(this.rb5min);
-            this.gbCSTimer.Enabled = false;
-            this.gbCSTimer.Location = new System.Drawing.Point(210, 124);
-            this.gbCSTimer.Name = "gbCSTimer";
-            this.gbCSTimer.Size = new System.Drawing.Size(198, 58);
-            this.gbCSTimer.TabIndex = 7;
-            this.gbCSTimer.TabStop = false;
-            this.gbCSTimer.Text = "Content Shield Timer Settings";
-            // 
-            // rb5min
-            // 
-            this.rb5min.AutoSize = true;
-            this.rb5min.Location = new System.Drawing.Point(68, 34);
-            this.rb5min.Name = "rb5min";
-            this.rb5min.Size = new System.Drawing.Size(58, 17);
-            this.rb5min.TabIndex = 0;
-            this.rb5min.TabStop = true;
-            this.rb5min.Text = "5 mins";
-            this.rb5min.UseVisualStyleBackColor = true;
-            this.rb5min.CheckedChanged += new System.EventHandler(this.rb5min_CheckedChanged);
-            // 
-            // rb1min
-            // 
-            this.rb1min.AutoSize = true;
-            this.rb1min.Location = new System.Drawing.Point(9, 34);
-            this.rb1min.Name = "rb1min";
-            this.rb1min.Size = new System.Drawing.Size(53, 17);
-            this.rb1min.TabIndex = 1;
-            this.rb1min.TabStop = true;
-            this.rb1min.Text = "1 min";
-            this.rb1min.UseVisualStyleBackColor = true;
-            this.rb1min.CheckedChanged += new System.EventHandler(this.rb1min_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Shield your content after...";
-            // 
-            // rb10min
-            // 
-            this.rb10min.AutoSize = true;
-            this.rb10min.Location = new System.Drawing.Point(132, 34);
-            this.rb10min.Name = "rb10min";
-            this.rb10min.Size = new System.Drawing.Size(64, 17);
-            this.rb10min.TabIndex = 9;
-            this.rb10min.TabStop = true;
-            this.rb10min.Text = "10 mins";
-            this.rb10min.UseVisualStyleBackColor = true;
-            this.rb10min.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Settings
             // 
@@ -617,8 +537,6 @@
             this.tpContShield.ResumeLayout(false);
             this.gbContShield.ResumeLayout(false);
             this.gbContShield.PerformLayout();
-            this.gbCSTimer.ResumeLayout(false);
-            this.gbCSTimer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,11 +581,5 @@
         private System.Windows.Forms.RadioButton rbSCMB;
         private System.Windows.Forms.RadioButton rbSCM;
         private System.Windows.Forms.RadioButton rbDNSC;
-        private System.Windows.Forms.RadioButton rbSCAT;
-        private System.Windows.Forms.GroupBox gbCSTimer;
-        private System.Windows.Forms.RadioButton rb5min;
-        private System.Windows.Forms.RadioButton rb1min;
-        internal System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rb10min;
     }
 }

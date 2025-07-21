@@ -75,9 +75,9 @@
             this.lblPins = new System.Windows.Forms.Label();
             this.btnPins = new System.Windows.Forms.Button();
             this.btnPin = new System.Windows.Forms.Button();
-            this.timerContShield = new System.Windows.Forms.Timer(this.components);
             this.panelContShield = new System.Windows.Forms.Panel();
             this.lblContShield = new System.Windows.Forms.Label();
+            this.timerHideInactive = new System.Windows.Forms.Timer(this.components);
             this.menuStripSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -460,11 +460,6 @@
             this.btnPin.MouseLeave += new System.EventHandler(this.btnPin_MouseLeave);
             this.btnPin.MouseHover += new System.EventHandler(this.btnPin_MouseHover);
             // 
-            // timerContShield
-            // 
-            this.timerContShield.Interval = 1000;
-            this.timerContShield.Tick += new System.EventHandler(this.timerContShield_Tick);
-            // 
             // panelContShield
             // 
             this.panelContShield.BackColor = System.Drawing.Color.Black;
@@ -486,6 +481,11 @@
             this.lblContShield.TabIndex = 0;
             this.lblContShield.Text = "CONTENT SHIELD";
             // 
+            // timerHideInactive
+            // 
+            this.timerHideInactive.Enabled = true;
+            this.timerHideInactive.Tick += new System.EventHandler(this.timerHideInactive_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,7 +503,6 @@
             this.MinimumSize = new System.Drawing.Size(820, 490);
             this.Name = "Main";
             this.Text = "Stash Explorer";
-            this.MouseLeave += new System.EventHandler(this.Main_MouseLeave);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.menuStripSE.ResumeLayout(false);
             this.menuStripSE.PerformLayout();
@@ -566,7 +565,7 @@
         private System.Windows.Forms.LinkLabel linkManage;
         private System.Windows.Forms.Panel panelContShield;
         private System.Windows.Forms.Label lblContShield;
-        public System.Windows.Forms.Timer timerContShield;
+        private System.Windows.Forms.Timer timerHideInactive;
     }
 }
 

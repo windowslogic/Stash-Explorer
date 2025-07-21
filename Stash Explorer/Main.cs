@@ -14,13 +14,13 @@ namespace Stash_Explorer
 {
     public partial class Main : Form
     {
+        #region Variables
         public Main()
         {
             InitializeComponent();
 
         }
 
-        #region Variables
         void LoadContent()
         {
             contentTimer.Stop();
@@ -116,51 +116,13 @@ namespace Stash_Explorer
             LoadContent();
         }
         #endregion
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            // Attempts to show the document title on the window title bar.
-            try
-            {
-                this.Text = webView21.CoreWebView2.DocumentTitle + " - Stash Explorer";
-            }
-            catch
-            {
-                MessageBox.Show("Unable to update Stash Explorer window title.");
-            }
-
-            // Checks to see if the current page is a performer page to enable pinning.
-            if (webView21.CoreWebView2.DocumentTitle.Contains("| Performers"))
-            {
-                btnPin.Enabled = true;
-            }
-            else
-            {
-                btnPin.Enabled = false;
-            }
-        }
-
-        private void stashExplorerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings();
-            settings.ShowDialog();
-            if (Properties.Settings.Default.Reload == true)
-            {
-                this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
-            }
-            else
-            {
-
-            }
-            
-        }
-
+        #region Menu
+        #region File
         private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Main main = new Main();
             main.Show();
         }
-
         private void createSceneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "scenes/new");
@@ -195,7 +157,8 @@ namespace Stash_Explorer
         {
             Application.Exit();
         }
-
+        #endregion
+        #region Stash
         private void stashappStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "stats");
@@ -205,7 +168,34 @@ namespace Stash_Explorer
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "settings");
         }
+        private void stashExplorerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.ShowDialog();
+            if (Properties.Settings.Default.Reload == true)
+            {
+                this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain);
+            }
+            else
+            {
 
+            }
+
+        }
+        #endregion
+        #region Help
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/windowslogic/Stash-Explorer/releases");
+        }
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+        #endregion
+        #endregion
+        #region System Tray Icon & Menu
         private void sysTrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
@@ -231,10 +221,6 @@ namespace Stash_Explorer
             {
                 panelContShield.Visible = true;
                 panelContShield.BringToFront();
-            }
-            else
-            {
-
             }
 
             if (Properties.Settings.Default.SysTrayMinimise == true)
@@ -310,18 +296,7 @@ namespace Stash_Explorer
         {
             Application.Exit();
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            About about = new About();
-            about.ShowDialog();
-        }
-
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/windowslogic/Stash-Explorer/releases");
-        }
-
+        #endregion
         #region Pins
         private void btnPin_Click(object sender, EventArgs e)
         {
@@ -402,7 +377,7 @@ namespace Stash_Explorer
         }
 
         #endregion
-
+        #region Content Shield Timer
         // Content shield timer bullshit.
         private void panelContShield_MouseEnter(object sender, EventArgs e)
         {
@@ -412,15 +387,53 @@ namespace Stash_Explorer
 
         private void timerContShield_Tick(object sender, EventArgs e)
         {
-            if (RectangleToScreen(Bounds).Contains(PointToScreen(Cursor.Position)) == false)
+            if (Form.ActiveForm != this)
             {
                 panelContShield.Visible = true;
+                panelContShield.BringToFront();
             }
         }
-
-        private void Main_MouseLeave(object sender, EventArgs e)
+        #endregion
+        #region Functions
+        private void Timer1_Tick(object sender, EventArgs e)
         {
-            if(Properties.Settings.Default.ContShield == 3)
+            // Attempts to show the document title on the window title bar.
+            try
+            {
+                this.Text = webView21.CoreWebView2.DocumentTitle + " - Stash Explorer";
+            }
+            catch
+            {
+                MessageBox.Show("Unable to update Stash Explorer window title.");
+            }
+
+            // Checks to see if the current page is a performer page to enable pinning.
+            if (webView21.CoreWebView2.DocumentTitle.Contains("| Performers"))
+            {
+                btnPin.Enabled = true;
+            }
+            else
+            {
+                btnPin.Enabled = false;
+            }
+        }
+        #endregion
+
+        private void timerHideInactive_Tick(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.ContShield == 2)
+            {
+                if (Form.ActiveForm != this)
+                {
+                    panelContShield.Visible = true;
+                    panelContShield.BringToFront();
+                }
+                else
+                {
+                    panelContShield.Visible = false;
+                }
+            }
+            else if(Properties.Settings.Default.ContShield == 3)
             {
                 timerContShield.Start();
             }

@@ -111,9 +111,6 @@ namespace Stash_Explorer
                 case 2:
                     rbSCMB.Checked = true;
                     break;
-                case 3:
-                    rbSCAT.Checked = true;
-                    break;
             }
         }
         #endregion
@@ -262,43 +259,6 @@ namespace Stash_Explorer
                 Properties.Settings.Default.ContShield = 2;
             }
         }
-
-        private void rbSCAT_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSCAT.Checked == true)
-            {
-                Properties.Settings.Default.ContShield = 3;
-                gbCSTimer.Enabled = true;
-            }
-            else
-            {
-                gbCSTimer.Enabled = false;
-            }
-        }
-
-        private void rb1min_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb1min.Checked == true)
-            {
-                Properties.Settings.Default.ContShieldTime = 60000;
-            }
-        }
-
-        private void rb5min_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb5min.Checked == true)
-            {
-                Properties.Settings.Default.ContShieldTime = 300000;
-            }
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb10min.Checked == true)
-            {
-                Properties.Settings.Default.ContShieldTime = 600000;
-            }
-        }
         #endregion
         #region Other
         private void Settings_FormClosing(object sender, FormClosingEventArgs e)
@@ -333,27 +293,9 @@ namespace Stash_Explorer
                     break;
             }
 
-            switch (Properties.Settings.Default.ContShieldTime)
-            {
-                case 60000:
-                    Main main1min = new Main();
-                    main1min.timerContShield.Interval = 300000;
-                    break;
-                case 300000:
-                    Main main5min = new Main();
-                    main5min.timerContShield.Interval = 300000;
-                    break;
-                case 600000:
-                    Main main10min = new Main();
-                    main10min.timerContShield.Interval = 600000;
-                    break;
-            }
-
             Properties.Settings.Default.Domain = textBoxURL.Text;
             Properties.Settings.Default.Save();
         }
-        #endregion
-
-        
+        #endregion 
     }
 }
