@@ -468,7 +468,6 @@
             this.panelContShield.Name = "panelContShield";
             this.panelContShield.Size = new System.Drawing.Size(804, 427);
             this.panelContShield.TabIndex = 6;
-            this.panelContShield.MouseEnter += new System.EventHandler(this.panelContShield_MouseEnter);
             // 
             // lblContShield
             // 

@@ -377,20 +377,20 @@ namespace Stash_Explorer
         }
 
         #endregion
-        #region Content Shield Timer
-        // Content shield timer bullshit.
-        private void panelContShield_MouseEnter(object sender, EventArgs e)
+        #region Content Shield
+        private void timerHideInactive_Tick(object sender, EventArgs e)
         {
-            panelContShield.Visible = false;
-            timerContShield.Stop();
-        }
-
-        private void timerContShield_Tick(object sender, EventArgs e)
-        {
-            if (Form.ActiveForm != this)
+            if (Properties.Settings.Default.ContShield == 2)
             {
-                panelContShield.Visible = true;
-                panelContShield.BringToFront();
+                if (Form.ActiveForm != this)
+                {
+                    panelContShield.Visible = true;
+                    panelContShield.BringToFront();
+                }
+                else
+                {
+                    panelContShield.Visible = false;
+                }
             }
         }
         #endregion
@@ -418,25 +418,5 @@ namespace Stash_Explorer
             }
         }
         #endregion
-
-        private void timerHideInactive_Tick(object sender, EventArgs e)
-        {
-            if(Properties.Settings.Default.ContShield == 2)
-            {
-                if (Form.ActiveForm != this)
-                {
-                    panelContShield.Visible = true;
-                    panelContShield.BringToFront();
-                }
-                else
-                {
-                    panelContShield.Visible = false;
-                }
-            }
-            else if(Properties.Settings.Default.ContShield == 3)
-            {
-                timerContShield.Start();
-            }
-        }
     }
 }
