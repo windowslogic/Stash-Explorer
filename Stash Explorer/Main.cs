@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Stash_Explorer
 {
@@ -23,6 +24,77 @@ namespace Stash_Explorer
 
         void LoadContent()
         {
+            // Attempt to read INI file and port into Properties.Settings.Default
+            try
+            {
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(2).ToString();
+
+                if(tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.DomainConfigured = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.DomainConfigured = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(4).ToString();
+
+                Properties.Settings.Default.Domain = tbSetSettings.Text;
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(6).ToString();
+
+                Properties.Settings.Default.Startup = Convert.ToInt32(tbSetSettings.Text);
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(8).ToString();
+
+                Properties.Settings.Default.StartupToDest = tbSetSettings.Text;
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(10).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.SysTrayMinimise = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.SysTrayMinimise = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(12).ToString();
+
+                Properties.Settings.Default.StartupIDP = tbSetSettings.Text;
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(14).ToString();
+
+                Properties.Settings.Default.StartupIDG = tbSetSettings.Text;
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(16).ToString();
+
+                Properties.Settings.Default.StartupIDT = tbSetSettings.Text;
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(18).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.Reload = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.Reload = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(20).ToString();
+
+                Properties.Settings.Default.ContShield = Convert.ToInt32(tbSetSettings.Text);
+            }
+            catch
+            {
+
+            }
+
+            // Stop timer used to trick WebView2 into loading from code.
+            // Load user selected domain, or settings if not configured.
             contentTimer.Stop();
             if (Properties.Settings.Default.DomainConfigured == false)
             {
@@ -298,16 +370,7 @@ namespace Stash_Explorer
         }
         #endregion
         #region Pins
-        private void btnPin_Click(object sender, EventArgs e)
-        {
-
-            // Pins the performer to the settings.
-            string pinSource = webView21.Source.ToString();
-            Properties.Settings.Default.Pins.Add(pinSource);
-            Properties.Settings.Default.Save();
-        }
-
-        private void btnPins_Click(object sender, EventArgs e)
+        void openPinPanel()
         {
             // Checks if the panel is open, then populates the listbox for pinned items.
             if (panelPinned.Visible == false)
@@ -324,6 +387,27 @@ namespace Stash_Explorer
                 panelPinned.Visible = false;
                 lbPinned.Items.Clear();
             }
+        }
+
+        private void btnPin_Click(object sender, EventArgs e)
+        {
+            // Checks if user has 12 Pins, otherwise pins the performer.
+            if (lbPinned.Items.Count == 12)
+            {
+                MessageBox.Show("You can only have up to 12 pins.");
+            }
+            else
+            {
+                string pinSource = webView21.Source.ToString();
+                Properties.Settings.Default.Pins.Add(pinSource);
+                lbPinned.Items.Add(pinSource);
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void btnPins_Click(object sender, EventArgs e)
+        {
+            openPinPanel();
         }
 
         public void openPinned()
@@ -418,5 +502,59 @@ namespace Stash_Explorer
             }
         }
         #endregion
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.Create("StashExplorer.ini").Dispose();
+
+            File.WriteAllText("StashExplorer.ini", "");
+
+            StreamWriter objWriter = new StreamWriter("StashExplorer.ini", true);
+
+            objWriter.WriteLine("[Stash Explorer " + Application.ProductVersion + "]");
+            objWriter.WriteLine("[DomainConfigured]");
+            if(Properties.Settings.Default.DomainConfigured == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[Domain]");
+            objWriter.WriteLine(Properties.Settings.Default.Domain);
+            objWriter.WriteLine("[Start-up]");
+            objWriter.WriteLine(Properties.Settings.Default.Startup.ToString());
+            objWriter.WriteLine("[Start-upToDest]");
+            objWriter.WriteLine(Properties.Settings.Default.StartupToDest);
+            objWriter.WriteLine("[SysTrayMinimise]");
+            if (Properties.Settings.Default.SysTrayMinimise == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[Start-upIDP]");
+            objWriter.WriteLine(Properties.Settings.Default.StartupIDP.ToString());
+            objWriter.WriteLine("[Start-upIDG]");
+            objWriter.WriteLine(Properties.Settings.Default.StartupIDG.ToString());
+            objWriter.WriteLine("[Start-upIDT]");
+            objWriter.WriteLine(Properties.Settings.Default.StartupIDT.ToString());
+            objWriter.WriteLine("[Reload]");
+            if (Properties.Settings.Default.Reload == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[ContShield]");
+            objWriter.WriteLine(Properties.Settings.Default.ContShield.ToString());
+
+            objWriter.Close();
+        }
     }
 }

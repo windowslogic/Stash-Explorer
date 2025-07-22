@@ -3,11 +3,12 @@
 //using System.ComponentModel;
 //using System.Data;
 //using System.Drawing;
-//using System.Linq;
+using System.Linq;
 //using System.Text;
 using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Stash_Explorer
 {
@@ -296,6 +297,167 @@ namespace Stash_Explorer
             Properties.Settings.Default.Domain = textBoxURL.Text;
             Properties.Settings.Default.Save();
         }
-        #endregion 
+        #endregion
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Open Stash Explorer Pin Stack";
+            openFileDialog1.Filter = "Pin Stack|*.seps";
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                string getImport = Path.GetFileName(openFileDialog1.FileName);
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(0).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(1).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(2).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(3).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(4).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(5).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(6).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(7).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(8).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(9).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(10).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(11).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(12).ToString();
+
+                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                }
+                catch
+                {
+
+                }
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

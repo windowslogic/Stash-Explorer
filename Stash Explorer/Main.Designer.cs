@@ -78,6 +78,7 @@
             this.panelContShield = new System.Windows.Forms.Panel();
             this.lblContShield = new System.Windows.Forms.Label();
             this.timerHideInactive = new System.Windows.Forms.Timer(this.components);
+            this.tbSetSettings = new System.Windows.Forms.TextBox();
             this.menuStripSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -231,19 +232,19 @@
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "&Check for updates...";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -430,6 +431,7 @@
             // 
             // btnPins
             // 
+            this.btnPins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPins.FlatAppearance.BorderSize = 0;
             this.btnPins.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.HotTrack;
             this.btnPins.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
@@ -446,6 +448,7 @@
             // 
             // btnPin
             // 
+            this.btnPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPin.FlatAppearance.BorderSize = 0;
             this.btnPin.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.HotTrack;
             this.btnPin.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
@@ -485,11 +488,20 @@
             this.timerHideInactive.Enabled = true;
             this.timerHideInactive.Tick += new System.EventHandler(this.timerHideInactive_Tick);
             // 
+            // tbSetSettings
+            // 
+            this.tbSetSettings.Location = new System.Drawing.Point(571, 1);
+            this.tbSetSettings.Name = "tbSetSettings";
+            this.tbSetSettings.Size = new System.Drawing.Size(100, 22);
+            this.tbSetSettings.TabIndex = 7;
+            this.tbSetSettings.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.tbSetSettings);
             this.Controls.Add(this.panelContShield);
             this.Controls.Add(this.btnPin);
             this.Controls.Add(this.btnPins);
@@ -502,6 +514,7 @@
             this.MinimumSize = new System.Drawing.Size(820, 490);
             this.Name = "Main";
             this.Text = "Stash Explorer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.menuStripSE.ResumeLayout(false);
             this.menuStripSE.PerformLayout();
@@ -565,6 +578,7 @@
         private System.Windows.Forms.Panel panelContShield;
         private System.Windows.Forms.Label lblContShield;
         private System.Windows.Forms.Timer timerHideInactive;
+        private System.Windows.Forms.TextBox tbSetSettings;
     }
 }
 

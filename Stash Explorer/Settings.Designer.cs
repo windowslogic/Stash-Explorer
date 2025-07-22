@@ -61,12 +61,16 @@
             this.FavouritesLabel = new System.Windows.Forms.Label();
             this.tpContShield = new System.Windows.Forms.TabPage();
             this.gbContShield = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.lblContShield = new System.Windows.Forms.Label();
-            this.lblSaveReminder = new System.Windows.Forms.Label();
-            this.rbSCM = new System.Windows.Forms.RadioButton();
-            this.rbSCMB = new System.Windows.Forms.RadioButton();
             this.rbDNSC = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.rbSCM = new System.Windows.Forms.RadioButton();
+            this.lblContShield = new System.Windows.Forms.Label();
+            this.rbSCMB = new System.Windows.Forms.RadioButton();
+            this.lblSaveReminder = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tbImportPins = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tpStash.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
@@ -353,6 +357,9 @@
             // 
             // gbPins
             // 
+            this.gbPins.Controls.Add(this.tbImportPins);
+            this.gbPins.Controls.Add(this.btnImport);
+            this.gbPins.Controls.Add(this.btnExport);
             this.gbPins.Controls.Add(this.btnDel);
             this.gbPins.Controls.Add(this.btnDelAll);
             this.gbPins.Controls.Add(this.btnOpen);
@@ -408,9 +415,11 @@
             this.FavouritesLabel.AutoSize = true;
             this.FavouritesLabel.Location = new System.Drawing.Point(6, 18);
             this.FavouritesLabel.Name = "FavouritesLabel";
-            this.FavouritesLabel.Size = new System.Drawing.Size(402, 52);
+            this.FavouritesLabel.Size = new System.Drawing.Size(392, 39);
             this.FavouritesLabel.TabIndex = 3;
-            this.FavouritesLabel.Text = resources.GetString("FavouritesLabel.Text");
+            this.FavouritesLabel.Text = "Below is a list of performers you have saved. Performers cannot be saved in\r\nthe " +
+    "INI file, so it\'s best to export them manually and import them when the\r\napp upd" +
+    "ates.";
             // 
             // tpContShield
             // 
@@ -437,6 +446,18 @@
             this.gbContShield.TabStop = false;
             this.gbContShield.Text = "Content Shield Settings";
             // 
+            // rbDNSC
+            // 
+            this.rbDNSC.AutoSize = true;
+            this.rbDNSC.Location = new System.Drawing.Point(9, 55);
+            this.rbDNSC.Name = "rbDNSC";
+            this.rbDNSC.Size = new System.Drawing.Size(138, 17);
+            this.rbDNSC.TabIndex = 6;
+            this.rbDNSC.TabStop = true;
+            this.rbDNSC.Text = "Do not shield content";
+            this.rbDNSC.UseVisualStyleBackColor = true;
+            this.rbDNSC.CheckedChanged += new System.EventHandler(this.rbDNSC_CheckedChanged);
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -446,25 +467,6 @@
             this.checkBox1.Size = new System.Drawing.Size(25, 5);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // lblContShield
-            // 
-            this.lblContShield.AutoSize = true;
-            this.lblContShield.Location = new System.Drawing.Point(6, 16);
-            this.lblContShield.Name = "lblContShield";
-            this.lblContShield.Size = new System.Drawing.Size(397, 26);
-            this.lblContShield.TabIndex = 0;
-            this.lblContShield.Text = "Content Shield stops onlookers from seeing what you\'re looking at on your\r\nStasha" +
-    "pp. This is useful if you\'re in an unsafe place to view pornography.";
-            // 
-            // lblSaveReminder
-            // 
-            this.lblSaveReminder.AutoSize = true;
-            this.lblSaveReminder.Location = new System.Drawing.Point(304, 10);
-            this.lblSaveReminder.Name = "lblSaveReminder";
-            this.lblSaveReminder.Size = new System.Drawing.Size(152, 13);
-            this.lblSaveReminder.TabIndex = 5;
-            this.lblSaveReminder.Text = " Settings are saved on close.";
             // 
             // rbSCM
             // 
@@ -478,6 +480,16 @@
             this.rbSCM.UseVisualStyleBackColor = true;
             this.rbSCM.CheckedChanged += new System.EventHandler(this.rbSCM_CheckedChanged);
             // 
+            // lblContShield
+            // 
+            this.lblContShield.AutoSize = true;
+            this.lblContShield.Location = new System.Drawing.Point(6, 16);
+            this.lblContShield.Name = "lblContShield";
+            this.lblContShield.Size = new System.Drawing.Size(397, 26);
+            this.lblContShield.TabIndex = 0;
+            this.lblContShield.Text = "Content Shield stops onlookers from seeing what you\'re looking at on your\r\nStasha" +
+    "pp. This is useful if you\'re in an unsafe place to view pornography.";
+            // 
             // rbSCMB
             // 
             this.rbSCMB.AutoSize = true;
@@ -490,17 +502,46 @@
             this.rbSCMB.UseVisualStyleBackColor = true;
             this.rbSCMB.CheckedChanged += new System.EventHandler(this.rbSCMB_CheckedChanged);
             // 
-            // rbDNSC
+            // lblSaveReminder
             // 
-            this.rbDNSC.AutoSize = true;
-            this.rbDNSC.Location = new System.Drawing.Point(9, 55);
-            this.rbDNSC.Name = "rbDNSC";
-            this.rbDNSC.Size = new System.Drawing.Size(138, 17);
-            this.rbDNSC.TabIndex = 6;
-            this.rbDNSC.TabStop = true;
-            this.rbDNSC.Text = "Do not shield content";
-            this.rbDNSC.UseVisualStyleBackColor = true;
-            this.rbDNSC.CheckedChanged += new System.EventHandler(this.rbDNSC_CheckedChanged);
+            this.lblSaveReminder.AutoSize = true;
+            this.lblSaveReminder.Location = new System.Drawing.Point(304, 10);
+            this.lblSaveReminder.Name = "lblSaveReminder";
+            this.lblSaveReminder.Size = new System.Drawing.Size(152, 13);
+            this.lblSaveReminder.TabIndex = 5;
+            this.lblSaveReminder.Text = " Settings are saved on close.";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(333, 47);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 8;
+            this.btnExport.Text = "Export...";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(252, 47);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 9;
+            this.btnImport.Text = "Import...";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // tbImportPins
+            // 
+            this.tbImportPins.Location = new System.Drawing.Point(137, 47);
+            this.tbImportPins.Name = "tbImportPins";
+            this.tbImportPins.Size = new System.Drawing.Size(100, 22);
+            this.tbImportPins.TabIndex = 10;
+            this.tbImportPins.Visible = false;
             // 
             // Settings
             // 
@@ -581,5 +622,9 @@
         private System.Windows.Forms.RadioButton rbSCMB;
         private System.Windows.Forms.RadioButton rbSCM;
         private System.Windows.Forms.RadioButton rbDNSC;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox tbImportPins;
     }
 }
