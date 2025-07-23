@@ -636,6 +636,9 @@
         AACAAQAAgAEAAIABAACAAQAAAAAAAAAAAAADwAAA4AcAAPw/AAD//wAA//8AAA==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>737, 23</value>
+  </metadata>
   <metadata name="timerHideInactive.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>589, 23</value>
   </metadata>

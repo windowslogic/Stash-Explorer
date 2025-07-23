@@ -310,6 +310,57 @@ namespace Stash_Explorer
                 Properties.Settings.Default.Save();
             }
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to import a pin stack? This will replace all current pins.", "Pins - Stash Explorer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                openFileDialog1.Title = "Open Stash Explorer Pin Stack";
+                openFileDialog1.Filter = "Pin Stack|*.seps";
+                openFileDialog1.FileName = "";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    lbPinned.Items.Clear();
+
+                    List<string> lines = new List<string>();
+                    using (StreamReader r = new StreamReader(openFileDialog1.OpenFile()))
+                    {
+                        string line;
+                        while ((line = r.ReadLine()) != null)
+                        {
+                            lbPinned.Items.Add(line);
+                        }
+                    }
+                }
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Title = "Save Stash Explorer Pin Stack";
+            saveFileDialog1.Filter = "Pin Stack|*.seps";
+            saveFileDialog1.FileName = "";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                File.Create(saveFileDialog1.FileName).Dispose();
+
+                File.WriteAllText(saveFileDialog1.FileName, "");
+
+                StreamWriter objWriter = new StreamWriter(saveFileDialog1.FileName);
+
+                foreach (var item in lbPinned.Items)
+                {
+                    objWriter.WriteLine(item.ToString());
+                }
+
+                objWriter.Close();
+            }
+        }
         #endregion
         #region Content Shield
         private void rbDNSC_CheckedChanged(object sender, EventArgs e)
@@ -374,95 +425,100 @@ namespace Stash_Explorer
         }
         #endregion
 
-        private void btnImport_Click(object sender, EventArgs e)
+        private void chkScenes_CheckedChanged(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to import a pin stack? This will replace all current pins.", "Pins - Stash Explorer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (chkScenes.Checked == true)
             {
-                openFileDialog1.Title = "Open Stash Explorer Pin Stack";
-                openFileDialog1.Filter = "Pin Stack|*.seps";
-                openFileDialog1.FileName = "";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    lbPinned.Items.Clear();
-
-                    List<string> lines = new List<string>();
-                    using (StreamReader r = new StreamReader(openFileDialog1.OpenFile()))
-                    {
-                        string line;
-                        while ((line = r.ReadLine()) != null)
-                        {
-                            lbPinned.Items.Add(line);
-                        }
-                    }
-                }
-                Properties.Settings.Default.Save();
+                Properties.Settings.Default.EnableScenes = true;
             }
             else
             {
-
+                Properties.Settings.Default.EnableScenes = false;
             }
-        }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.Title = "Save Stash Explorer Pin Stack";
-            saveFileDialog1.Filter = "Pin Stack|*.seps";
-            saveFileDialog1.FileName = "";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                File.Create(saveFileDialog1.FileName).Dispose();
-
-                File.WriteAllText(saveFileDialog1.FileName, "");
-
-                StreamWriter objWriter = new StreamWriter(saveFileDialog1.FileName);
-
-                foreach (var item in lbPinned.Items)
-                {
-                    objWriter.WriteLine(item.ToString());
-                }
-
-                objWriter.Close();
-            }
-        }
-
-        private void chkScenes_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void chkImages_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkImages.Checked == true)
+            {
+                Properties.Settings.Default.EnableImages = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableImages = false;
+            }
         }
 
         private void chkGroups_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkGroups.Checked == true)
+            {
+                Properties.Settings.Default.EnableGroups = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableGroups = false;
+            }
         }
 
         private void chkMarkers_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkMarkers.Checked == true)
+            {
+                Properties.Settings.Default.EnableMarkers = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableMarkers = false;
+            }
         }
 
         private void chkGalleries_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkGalleries.Checked == true)
+            {
+                Properties.Settings.Default.EnableGalleries = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableGalleries = false;
+            }
         }
 
         private void chkPerformers_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkPerformers.Checked == true)
+            {
+                Properties.Settings.Default.EnablePerformers = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnablePerformers = false;
+            }
         }
 
         private void chkStudios_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkStudios.Checked == true)
+            {
+                Properties.Settings.Default.EnableStudios = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableStudios = false;
+            }
         }
 
         private void chkTags_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkTags.Checked == true)
+            {
+                Properties.Settings.Default.EnableTags = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableTags = false;
+            }
         }
     }
 }

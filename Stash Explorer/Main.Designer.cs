@@ -79,6 +79,7 @@
             this.lblContShield = new System.Windows.Forms.Label();
             this.timerHideInactive = new System.Windows.Forms.Timer(this.components);
             this.tbSetSettings = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -96,7 +97,7 @@
             this.menuStripSE.Name = "menuStripSE";
             this.menuStripSE.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStripSE.Size = new System.Drawing.Size(804, 24);
-            this.menuStripSE.TabIndex = 1;
+            this.menuStripSE.TabIndex = 0;
             this.menuStripSE.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -119,66 +120,66 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newWindowToolStripMenuItem.Text = "&New window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // createSceneToolStripMenuItem
             // 
             this.createSceneToolStripMenuItem.Name = "createSceneToolStripMenuItem";
-            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createSceneToolStripMenuItem.Text = "Create &scene";
             this.createSceneToolStripMenuItem.Click += new System.EventHandler(this.createSceneToolStripMenuItem_Click);
             // 
             // createGroupToolStripMenuItem
             // 
             this.createGroupToolStripMenuItem.Name = "createGroupToolStripMenuItem";
-            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createGroupToolStripMenuItem.Text = "Create gro&up";
             this.createGroupToolStripMenuItem.Click += new System.EventHandler(this.createGroupToolStripMenuItem_Click);
             // 
             // createGalleryToolStripMenuItem
             // 
             this.createGalleryToolStripMenuItem.Name = "createGalleryToolStripMenuItem";
-            this.createGalleryToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createGalleryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createGalleryToolStripMenuItem.Text = "Create &gallery";
             this.createGalleryToolStripMenuItem.Click += new System.EventHandler(this.createGalleryToolStripMenuItem_Click);
             // 
             // createPerformerToolStripMenuItem
             // 
             this.createPerformerToolStripMenuItem.Name = "createPerformerToolStripMenuItem";
-            this.createPerformerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createPerformerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createPerformerToolStripMenuItem.Text = "Create &performer";
             this.createPerformerToolStripMenuItem.Click += new System.EventHandler(this.createPerformerToolStripMenuItem_Click);
             // 
             // createStudioToolStripMenuItem
             // 
             this.createStudioToolStripMenuItem.Name = "createStudioToolStripMenuItem";
-            this.createStudioToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createStudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createStudioToolStripMenuItem.Text = "Create st&udio";
             this.createStudioToolStripMenuItem.Click += new System.EventHandler(this.createStudioToolStripMenuItem_Click);
             // 
             // createTagToolStripMenuItem
             // 
             this.createTagToolStripMenuItem.Name = "createTagToolStripMenuItem";
-            this.createTagToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.createTagToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createTagToolStripMenuItem.Text = "Create &tag";
             this.createTagToolStripMenuItem.Click += new System.EventHandler(this.createTagToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -379,6 +380,8 @@
             // 
             // panelPinned
             // 
+            this.panelPinned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPinned.Controls.Add(this.linkManage);
             this.panelPinned.Controls.Add(this.btnOpen);
             this.panelPinned.Controls.Add(this.lbPinned);
@@ -395,17 +398,19 @@
             this.linkManage.Location = new System.Drawing.Point(4, 401);
             this.linkManage.Name = "linkManage";
             this.linkManage.Size = new System.Drawing.Size(83, 13);
-            this.linkManage.TabIndex = 7;
+            this.linkManage.TabIndex = 4;
             this.linkManage.TabStop = true;
             this.linkManage.Text = "Manage pins...";
+            this.toolTip1.SetToolTip(this.linkManage, "Opens settings so you can manage your pin stack.");
             this.linkManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkManage_LinkClicked);
             // 
             // btnOpen
             // 
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnOpen.Location = new System.Drawing.Point(137, 396);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 6;
+            this.btnOpen.TabIndex = 5;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
@@ -416,7 +421,7 @@
             this.lbPinned.Location = new System.Drawing.Point(3, 35);
             this.lbPinned.Name = "lbPinned";
             this.lbPinned.Size = new System.Drawing.Size(218, 355);
-            this.lbPinned.TabIndex = 5;
+            this.lbPinned.TabIndex = 3;
             this.lbPinned.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbPinned_MouseDoubleClick);
             // 
             // lblPins
@@ -439,7 +444,7 @@
             this.btnPins.Location = new System.Drawing.Point(767, 0);
             this.btnPins.Name = "btnPins";
             this.btnPins.Size = new System.Drawing.Size(37, 23);
-            this.btnPins.TabIndex = 4;
+            this.btnPins.TabIndex = 2;
             this.btnPins.Text = "Pins";
             this.btnPins.UseVisualStyleBackColor = true;
             this.btnPins.Click += new System.EventHandler(this.btnPins_Click);
@@ -457,15 +462,19 @@
             this.btnPin.Location = new System.Drawing.Point(677, 0);
             this.btnPin.Name = "btnPin";
             this.btnPin.Size = new System.Drawing.Size(84, 23);
-            this.btnPin.TabIndex = 5;
+            this.btnPin.TabIndex = 1;
             this.btnPin.Text = "Pin Performer";
             this.btnPin.UseVisualStyleBackColor = true;
             this.btnPin.Click += new System.EventHandler(this.btnPin_Click);
+            this.btnPin.MouseEnter += new System.EventHandler(this.btnPin_MouseEnter);
             this.btnPin.MouseLeave += new System.EventHandler(this.btnPin_MouseLeave);
             this.btnPin.MouseHover += new System.EventHandler(this.btnPin_MouseHover);
             // 
             // panelContShield
             // 
+            this.panelContShield.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContShield.BackColor = System.Drawing.Color.Black;
             this.panelContShield.Controls.Add(this.lblContShield);
             this.panelContShield.Location = new System.Drawing.Point(0, 24);
@@ -475,6 +484,7 @@
             // 
             // lblContShield
             // 
+            this.lblContShield.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblContShield.AutoSize = true;
             this.lblContShield.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContShield.ForeColor = System.Drawing.Color.White;
@@ -534,9 +544,6 @@
         private System.Windows.Forms.MenuStrip menuStripSE;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createSceneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createGalleryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createPerformerToolStripMenuItem;
         internal System.Windows.Forms.Timer titleTimer;
         public Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.ToolStripMenuItem stashToolStripMenuItem;
@@ -544,8 +551,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem stashExplorerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem createStudioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createTagToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         internal System.Windows.Forms.Timer contentTimer;
@@ -556,19 +561,10 @@
         private System.Windows.Forms.ContextMenuStrip sysTrayMenu;
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem scenesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imagesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem groupsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem galleriesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem performersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studiosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem createGroupToolStripMenuItem;
         private System.Windows.Forms.Panel panelPinned;
         private System.Windows.Forms.Label lblPins;
         private System.Windows.Forms.ListBox lbPinned;
@@ -580,6 +576,21 @@
         private System.Windows.Forms.Label lblContShield;
         private System.Windows.Forms.Timer timerHideInactive;
         private System.Windows.Forms.TextBox tbSetSettings;
+        private System.Windows.Forms.ToolTip toolTip1;
+        public System.Windows.Forms.ToolStripMenuItem createSceneToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem createGalleryToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem createPerformerToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem createStudioToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem createTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem scenesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem imagesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem groupsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem markersToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem galleriesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem performersToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem studiosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem createGroupToolStripMenuItem;
     }
 }
 

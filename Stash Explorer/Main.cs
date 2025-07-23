@@ -87,10 +87,183 @@ namespace Stash_Explorer
                 tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(20).ToString();
 
                 Properties.Settings.Default.ContShield = Convert.ToInt32(tbSetSettings.Text);
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(22).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableScenes = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableScenes = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(24).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableImages = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableImages = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(26).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableGroups = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableGroups = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(28).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableMarkers = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableMarkers = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(30).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableGalleries = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableGalleries = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(32).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnablePerformers = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnablePerformers = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(34).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableStudios = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableStudios = false;
+                }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(36).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.EnableTags = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.EnableTags = false;
+                }
             }
             catch
             {
+                MessageBox.Show("Unable to read INI file. Cannot import user settings.");
+            }
 
+            // Check user area settings and enable/disable sections pertaining.
+            if (Properties.Settings.Default.EnableScenes == true)
+            {
+                createSceneToolStripMenuItem.Visible = true;
+                scenesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createSceneToolStripMenuItem.Visible = false;
+                scenesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableImages == true)
+            {
+                imagesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                imagesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableGroups == true)
+            {
+                createGroupToolStripMenuItem.Visible = true;
+                groupsToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createGroupToolStripMenuItem.Visible = false;
+                groupsToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableMarkers == true)
+            {
+                markersToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                markersToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableGalleries == true)
+            {
+                createGalleryToolStripMenuItem.Visible = true;
+                galleriesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createGalleryToolStripMenuItem.Visible = false;
+                galleriesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnablePerformers == true)
+            {
+                createPerformerToolStripMenuItem.Visible = true;
+                performersToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createPerformerToolStripMenuItem.Visible = false;
+                performersToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableStudios == true)
+            {
+                createStudioToolStripMenuItem.Visible = true;
+                studiosToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createStudioToolStripMenuItem.Visible = false;
+                studiosToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableTags == true)
+            {
+                createTagToolStripMenuItem.Visible = true;
+                tagsToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createTagToolStripMenuItem.Visible = false;
+                tagsToolStripMenuItem.Visible = false;
             }
 
             // Stop timer used to trick WebView2 into loading from code.
@@ -440,6 +613,16 @@ namespace Stash_Explorer
             settings.ShowDialog();
         }
 
+        private void btnPins_MouseEnter(object sender, EventArgs e)
+        {
+            btnPins.ForeColor = Color.White;
+        }
+
+        private void btnPin_MouseEnter(object sender, EventArgs e)
+        {
+            btnPin.ForeColor = Color.White;
+        }
+
         private void btnPins_MouseHover(object sender, EventArgs e)
         {
             btnPins.ForeColor = Color.White;
@@ -553,16 +736,82 @@ namespace Stash_Explorer
             }
             objWriter.WriteLine("[ContShield]");
             objWriter.WriteLine(Properties.Settings.Default.ContShield.ToString());
+            objWriter.WriteLine("[EnableScenes]");
+            if(Properties.Settings.Default.EnableScenes == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableImages]");
+            if (Properties.Settings.Default.EnableImages == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableGroups]");
+            if (Properties.Settings.Default.EnableGroups == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableMarkers]");
+            if (Properties.Settings.Default.EnableMarkers == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableGalleries]");
+            if (Properties.Settings.Default.EnableGalleries == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+
+            objWriter.WriteLine("[EnablePerformers]");
+            if (Properties.Settings.Default.EnablePerformers == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableStudios]");
+            if (Properties.Settings.Default.EnableStudios == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableTags]");
+            if (Properties.Settings.Default.EnableTags == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
 
             objWriter.Close();
         }
         #endregion
-
-
-
-        private void btnPins_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
