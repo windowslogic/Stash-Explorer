@@ -501,10 +501,10 @@ namespace Stash_Explorer
                 btnPin.Enabled = false;
             }
         }
-        #endregion
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Writes user settings to INI file.
             File.Create("StashExplorer.ini").Dispose();
 
             File.WriteAllText("StashExplorer.ini", "");
@@ -513,7 +513,7 @@ namespace Stash_Explorer
 
             objWriter.WriteLine("[Stash Explorer " + Application.ProductVersion + "]");
             objWriter.WriteLine("[DomainConfigured]");
-            if(Properties.Settings.Default.DomainConfigured == true)
+            if (Properties.Settings.Default.DomainConfigured == true)
             {
                 objWriter.WriteLine("true");
             }
@@ -555,6 +555,14 @@ namespace Stash_Explorer
             objWriter.WriteLine(Properties.Settings.Default.ContShield.ToString());
 
             objWriter.Close();
+        }
+        #endregion
+
+
+
+        private void btnPins_MouseEnter(object sender, EventArgs e)
+        {
+
         }
     }
 }

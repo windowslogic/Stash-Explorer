@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 //using System.Collections.Generic;
 //using System.ComponentModel;
 //using System.Data;
@@ -8,7 +10,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using static System.Windows.Forms.AxHost;
 
 namespace Stash_Explorer
 {
@@ -48,11 +50,84 @@ namespace Stash_Explorer
 
             if (Properties.Settings.Default.Reload == true)
             {
-                checkBoxReload.Checked = true;
+                chkReload.Checked = true;
             }
             else
             {
-                checkBoxReload.Checked = false;
+                chkReload.Checked = false;
+            }
+            
+            // Load user area settings.
+            if(Properties.Settings.Default.EnableScenes == true)
+            {
+                chkScenes.Checked = true;
+            }
+            else
+            {
+                chkScenes.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableImages == true)
+            {
+                chkImages.Checked = true;
+            }
+            else
+            {
+                chkImages.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableGroups == true)
+            {
+                chkGroups.Checked = true;
+            }
+            else
+            {
+                chkGroups.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableMarkers == true)
+            {
+                chkMarkers.Checked = true;
+            }
+            else
+            {
+                chkMarkers.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableGalleries == true)
+            {
+                chkGalleries.Checked = true;
+            }
+            else
+            {
+                chkGalleries.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnablePerformers == true)
+            {
+                chkPerformers.Checked = true;
+            }
+            else
+            {
+                chkPerformers.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableStudios == true)
+            {
+                chkStudios.Checked = true;
+            }
+            else
+            {
+                chkStudios.Checked = false;
+            }
+
+            if (Properties.Settings.Default.EnableTags == true)
+            {
+                chkTags.Checked = true;
+            }
+            else
+            {
+                chkTags.Checked = false;
             }
 
             // Load user startup settings.
@@ -132,7 +207,7 @@ namespace Stash_Explorer
         // Toggle WebView2 reload on settings exit.
         private void checkBoxReload_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxReload.Checked == true)
+            if (chkReload.Checked == true)
             {
                 Properties.Settings.Default.Reload = true;
             }
@@ -301,161 +376,91 @@ namespace Stash_Explorer
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Open Stash Explorer Pin Stack";
-            openFileDialog1.Filter = "Pin Stack|*.seps";
-            openFileDialog1.FileName = "";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if(MessageBox.Show("Are you sure you want to import a pin stack? This will replace all current pins.", "Pins - Stash Explorer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                
-                string getImport = Path.GetFileName(openFileDialog1.FileName);
-
-                try
+                openFileDialog1.Title = "Open Stash Explorer Pin Stack";
+                openFileDialog1.Filter = "Pin Stack|*.seps";
+                openFileDialog1.FileName = "";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(0).ToString();
+                    lbPinned.Items.Clear();
 
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
+                    List<string> lines = new List<string>();
+                    using (StreamReader r = new StreamReader(openFileDialog1.OpenFile()))
+                    {
+                        string line;
+                        while ((line = r.ReadLine()) != null)
+                        {
+                            lbPinned.Items.Add(line);
+                        }
+                    }
                 }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(1).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(2).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(3).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(4).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(5).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(6).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(7).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(8).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(9).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(10).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(11).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
-
-                try
-                {
-                    tbImportPins.Text = File.ReadAllLines(getImport).ElementAt(12).ToString();
-
-                    Properties.Settings.Default.Pins.Add(tbImportPins.Text);
-                }
-                catch
-                {
-
-                }
+                Properties.Settings.Default.Save();
             }
-            Properties.Settings.Default.Save();
+            else
+            {
+
+            }
         }
 
         private void btnExport_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Title = "Save Stash Explorer Pin Stack";
+            saveFileDialog1.Filter = "Pin Stack|*.seps";
+            saveFileDialog1.FileName = "";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                File.Create(saveFileDialog1.FileName).Dispose();
+
+                File.WriteAllText(saveFileDialog1.FileName, "");
+
+                StreamWriter objWriter = new StreamWriter(saveFileDialog1.FileName);
+
+                foreach (var item in lbPinned.Items)
+                {
+                    objWriter.WriteLine(item.ToString());
+                }
+
+                objWriter.Close();
+            }
+        }
+
+        private void chkScenes_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkImages_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkGroups_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkMarkers_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkGalleries_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkPerformers_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkStudios_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkTags_CheckedChanged(object sender, EventArgs e)
         {
 
         }

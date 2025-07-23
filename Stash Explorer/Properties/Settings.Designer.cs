@@ -156,5 +156,101 @@ namespace Stash_Explorer.Properties {
                 this["ContShield"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableScenes {
+            get {
+                return ((bool)(this["EnableScenes"]));
+            }
+            set {
+                this["EnableScenes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableGroups {
+            get {
+                return ((bool)(this["EnableGroups"]));
+            }
+            set {
+                this["EnableGroups"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableImages {
+            get {
+                return ((bool)(this["EnableImages"]));
+            }
+            set {
+                this["EnableImages"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableMarkers {
+            get {
+                return ((bool)(this["EnableMarkers"]));
+            }
+            set {
+                this["EnableMarkers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableGalleries {
+            get {
+                return ((bool)(this["EnableGalleries"]));
+            }
+            set {
+                this["EnableGalleries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnablePerformers {
+            get {
+                return ((bool)(this["EnablePerformers"]));
+            }
+            set {
+                this["EnablePerformers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableStudios {
+            get {
+                return ((bool)(this["EnableStudios"]));
+            }
+            set {
+                this["EnableStudios"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableTags {
+            get {
+                return ((bool)(this["EnableTags"]));
+            }
+            set {
+                this["EnableTags"] = value;
+            }
+        }
     }
 }

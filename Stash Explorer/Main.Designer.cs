@@ -443,6 +443,7 @@
             this.btnPins.Text = "Pins";
             this.btnPins.UseVisualStyleBackColor = true;
             this.btnPins.Click += new System.EventHandler(this.btnPins_Click);
+            this.btnPins.MouseEnter += new System.EventHandler(this.btnPins_MouseEnter);
             this.btnPins.MouseLeave += new System.EventHandler(this.btnPins_MouseLeave);
             this.btnPins.MouseHover += new System.EventHandler(this.btnPins_MouseHover);
             // 
