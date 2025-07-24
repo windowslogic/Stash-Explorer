@@ -181,91 +181,6 @@ namespace Stash_Explorer
                 MessageBox.Show("Unable to read INI file. Cannot import user settings.");
             }
 
-            // Check user area settings and enable/disable sections pertaining.
-            if (Properties.Settings.Default.EnableScenes == true)
-            {
-                createSceneToolStripMenuItem.Visible = true;
-                scenesToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createSceneToolStripMenuItem.Visible = false;
-                scenesToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableImages == true)
-            {
-                imagesToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                imagesToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableGroups == true)
-            {
-                createGroupToolStripMenuItem.Visible = true;
-                groupsToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createGroupToolStripMenuItem.Visible = false;
-                groupsToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableMarkers == true)
-            {
-                markersToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                markersToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableGalleries == true)
-            {
-                createGalleryToolStripMenuItem.Visible = true;
-                galleriesToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createGalleryToolStripMenuItem.Visible = false;
-                galleriesToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnablePerformers == true)
-            {
-                createPerformerToolStripMenuItem.Visible = true;
-                performersToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createPerformerToolStripMenuItem.Visible = false;
-                performersToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableStudios == true)
-            {
-                createStudioToolStripMenuItem.Visible = true;
-                studiosToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createStudioToolStripMenuItem.Visible = false;
-                studiosToolStripMenuItem.Visible = false;
-            }
-
-            if (Properties.Settings.Default.EnableTags == true)
-            {
-                createTagToolStripMenuItem.Visible = true;
-                tagsToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                createTagToolStripMenuItem.Visible = false;
-                tagsToolStripMenuItem.Visible = false;
-            }
-
             // Stop timer used to trick WebView2 into loading from code.
             // Load user selected domain, or settings if not configured.
             contentTimer.Stop();
@@ -644,9 +559,12 @@ namespace Stash_Explorer
         }
 
         #endregion
-        #region Content Shield
+        #region Content Shield & Areas Selection
+        // We have to use this timer for two purposes because C# is stupid and can't control
+        // other parts of the app without creating a new instance.
         private void timerHideInactive_Tick(object sender, EventArgs e)
         {
+            // Checks if the content shield setting is 2, then hides content when inactive.
             if (Properties.Settings.Default.ContShield == 2)
             {
                 if (Form.ActiveForm != this)
@@ -658,6 +576,91 @@ namespace Stash_Explorer
                 {
                     panelContShield.Visible = false;
                 }
+            }
+
+            // Checks user area settings to see if anything changed and enables/disables accordingly.
+            if (Properties.Settings.Default.EnableScenes == true)
+            {
+                createSceneToolStripMenuItem.Visible = true;
+                scenesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createSceneToolStripMenuItem.Visible = false;
+                scenesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableImages == true)
+            {
+                imagesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                imagesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableGroups == true)
+            {
+                createGroupToolStripMenuItem.Visible = true;
+                groupsToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createGroupToolStripMenuItem.Visible = false;
+                groupsToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableMarkers == true)
+            {
+                markersToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                markersToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableGalleries == true)
+            {
+                createGalleryToolStripMenuItem.Visible = true;
+                galleriesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createGalleryToolStripMenuItem.Visible = false;
+                galleriesToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnablePerformers == true)
+            {
+                createPerformerToolStripMenuItem.Visible = true;
+                performersToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createPerformerToolStripMenuItem.Visible = false;
+                performersToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableStudios == true)
+            {
+                createStudioToolStripMenuItem.Visible = true;
+                studiosToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createStudioToolStripMenuItem.Visible = false;
+                studiosToolStripMenuItem.Visible = false;
+            }
+
+            if (Properties.Settings.Default.EnableTags == true)
+            {
+                createTagToolStripMenuItem.Visible = true;
+                tagsToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                createTagToolStripMenuItem.Visible = false;
+                tagsToolStripMenuItem.Visible = false;
             }
         }
         #endregion

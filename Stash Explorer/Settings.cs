@@ -20,7 +20,6 @@ namespace Stash_Explorer
         public Settings()
         {
             InitializeComponent();
-            
         }
 
         void CheckChars(KeyPressEventArgs e)
@@ -214,6 +213,103 @@ namespace Stash_Explorer
             else
             {
                 Properties.Settings.Default.Reload = false;
+            }
+        }
+        #endregion
+        #region Areas
+        private void chkScenes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkScenes.Checked == true)
+            {
+                Properties.Settings.Default.EnableScenes = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableScenes = false;
+            }
+        }
+
+        private void chkImages_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkImages.Checked == true)
+            {
+                Properties.Settings.Default.EnableImages = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableImages = false;
+            }
+        }
+
+        private void chkGroups_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkGroups.Checked == true)
+            {
+                Properties.Settings.Default.EnableGroups = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableGroups = false;
+            }
+        }
+
+        private void chkMarkers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMarkers.Checked == true)
+            {
+                Properties.Settings.Default.EnableMarkers = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableMarkers = false;
+            }
+        }
+
+        private void chkGalleries_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkGalleries.Checked == true)
+            {
+                Properties.Settings.Default.EnableGalleries = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableGalleries = false;
+            }
+        }
+
+        private void chkPerformers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPerformers.Checked == true)
+            {
+                Properties.Settings.Default.EnablePerformers = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnablePerformers = false;
+            }
+        }
+
+        private void chkStudios_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkStudios.Checked == true)
+            {
+                Properties.Settings.Default.EnableStudios = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableStudios = false;
+            }
+        }
+
+        private void chkTags_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTags.Checked == true)
+            {
+                Properties.Settings.Default.EnableTags = true;
+            }
+            else
+            {
+                Properties.Settings.Default.EnableTags = false;
             }
         }
         #endregion
@@ -424,101 +520,5 @@ namespace Stash_Explorer
             Properties.Settings.Default.Save();
         }
         #endregion
-
-        private void chkScenes_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkScenes.Checked == true)
-            {
-                Properties.Settings.Default.EnableScenes = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableScenes = false;
-            }
-        }
-
-        private void chkImages_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkImages.Checked == true)
-            {
-                Properties.Settings.Default.EnableImages = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableImages = false;
-            }
-        }
-
-        private void chkGroups_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkGroups.Checked == true)
-            {
-                Properties.Settings.Default.EnableGroups = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableGroups = false;
-            }
-        }
-
-        private void chkMarkers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkMarkers.Checked == true)
-            {
-                Properties.Settings.Default.EnableMarkers = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableMarkers = false;
-            }
-        }
-
-        private void chkGalleries_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkGalleries.Checked == true)
-            {
-                Properties.Settings.Default.EnableGalleries = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableGalleries = false;
-            }
-        }
-
-        private void chkPerformers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkPerformers.Checked == true)
-            {
-                Properties.Settings.Default.EnablePerformers = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnablePerformers = false;
-            }
-        }
-
-        private void chkStudios_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkStudios.Checked == true)
-            {
-                Properties.Settings.Default.EnableStudios = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableStudios = false;
-            }
-        }
-
-        private void chkTags_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkTags.Checked == true)
-            {
-                Properties.Settings.Default.EnableTags = true;
-            }
-            else
-            {
-                Properties.Settings.Default.EnableTags = false;
-            }
-        }
     }
 }
