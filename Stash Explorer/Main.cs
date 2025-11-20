@@ -263,6 +263,15 @@ namespace Stash_Explorer
             {
                 MessageBox.Show(ex.Message);
             }
+
+            if (Properties.Settings.Default.ContShield == 1)
+            {
+                panelContShield.Visible = false;
+            }
+            else if (Properties.Settings.Default.ContShield == 2)
+            {
+                panelContShield.Visible = false;
+            }
         }
         #endregion
         #region Load Settings
@@ -565,17 +574,26 @@ namespace Stash_Explorer
         private void timerHideInactive_Tick(object sender, EventArgs e)
         {
             // Checks if the content shield setting is 2, then hides content when inactive.
-            if (Properties.Settings.Default.ContShield == 2)
+            // Stop content shield from sticking when disabled.
+            switch (Properties.Settings.Default.ContShield)
             {
-                if (Form.ActiveForm != this)
-                {
-                    panelContShield.Visible = true;
-                    panelContShield.BringToFront();
-                }
-                else
-                {
+                case 0:
                     panelContShield.Visible = false;
-                }
+                    break;
+                case 1:
+                    panelContShield.Visible = false;
+                    break;
+                case 2:
+                    if (Form.ActiveForm != this)
+                    {
+                        panelContShield.Visible = true;
+                        panelContShield.BringToFront();
+                    }
+                    else
+                    {
+                        panelContShield.Visible = false;
+                    }
+                    break;
             }
 
             // Checks user area settings to see if anything changed and enables/disables accordingly.
@@ -690,6 +708,20 @@ namespace Stash_Explorer
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Save pins to file.
+            File.Create("PinList.seps").Dispose();
+
+            File.WriteAllText("PinList.seps", "");
+
+            StreamWriter pinWriter = new StreamWriter("PinList.seps");
+
+            foreach (var item in lbPinned.Items)
+            {
+                pinWriter.WriteLine(item.ToString());
+            }
+
+            pinWriter.Close();
+
             // Writes user settings to INI file.
             File.Create("StashExplorer.ini").Dispose();
 

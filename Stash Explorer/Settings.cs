@@ -167,6 +167,25 @@ namespace Stash_Explorer
                     break;
             }
 
+            // Load pins from external file.
+            lbPinned.Items.Clear();
+
+            if (!File.Exists("PinList.seps"))
+            {
+                File.Create("PinList.seps").Dispose();
+            }
+
+            List<string> lines = new List<string>();
+            using (StreamReader r = new StreamReader("PinList.seps"))
+            {
+                string line;
+                while ((line = r.ReadLine()) != null)
+                {
+                    lbPinned.Items.Add(line);
+                }
+            }
+            Properties.Settings.Default.Save();
+
             // Load and populate user pin settings.
             lbPinned.Items.Clear();
             foreach (string item in Properties.Settings.Default.Pins)
@@ -213,6 +232,22 @@ namespace Stash_Explorer
             else
             {
                 Properties.Settings.Default.Reload = false;
+            }
+        }
+        #endregion
+        #region Appearance
+        private void chkDarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            // Enable/disable dark mode.
+            if (chkDarkMode.Checked == true)
+            {
+                Properties.Settings.Default.DarkMode = true;
+                MessageBox.Show("For dark mode to take effect, you need to restart Stash Explorer.");
+            }
+            else
+            {
+                Properties.Settings.Default.DarkMode = false;
+                MessageBox.Show("For light mode to take effect, you need to restart Stash Explorer.");
             }
         }
         #endregion

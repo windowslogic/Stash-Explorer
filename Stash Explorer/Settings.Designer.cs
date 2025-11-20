@@ -41,6 +41,21 @@
             this.labelURLExplain = new System.Windows.Forms.Label();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.labelURL = new System.Windows.Forms.Label();
+            this.tpAppearance = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkDarkMode = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tpAreas = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkTags = new System.Windows.Forms.CheckBox();
+            this.chkStudios = new System.Windows.Forms.CheckBox();
+            this.chkPerformers = new System.Windows.Forms.CheckBox();
+            this.chkGalleries = new System.Windows.Forms.CheckBox();
+            this.chkMarkers = new System.Windows.Forms.CheckBox();
+            this.chkImages = new System.Windows.Forms.CheckBox();
+            this.chkGroups = new System.Windows.Forms.CheckBox();
+            this.chkScenes = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tpStart = new System.Windows.Forms.TabPage();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.textBoxTag = new System.Windows.Forms.TextBox();
@@ -54,6 +69,9 @@
             this.Label6 = new System.Windows.Forms.Label();
             this.tpPins = new System.Windows.Forms.TabPage();
             this.gbPins = new System.Windows.Forms.GroupBox();
+            this.tbImportPins = new System.Windows.Forms.TextBox();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
@@ -67,40 +85,29 @@
             this.lblContShield = new System.Windows.Forms.Label();
             this.rbSCMB = new System.Windows.Forms.RadioButton();
             this.lblSaveReminder = new System.Windows.Forms.Label();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tbImportPins = new System.Windows.Forms.TextBox();
-            this.tpAreas = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkScenes = new System.Windows.Forms.CheckBox();
-            this.chkGroups = new System.Windows.Forms.CheckBox();
-            this.chkImages = new System.Windows.Forms.CheckBox();
-            this.chkMarkers = new System.Windows.Forms.CheckBox();
-            this.chkGalleries = new System.Windows.Forms.CheckBox();
-            this.chkPerformers = new System.Windows.Forms.CheckBox();
-            this.chkStudios = new System.Windows.Forms.CheckBox();
-            this.chkTags = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tpStash.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tpAppearance.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tpAreas.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.groupBoxStartup.SuspendLayout();
             this.tpPins.SuspendLayout();
             this.gbPins.SuspendLayout();
             this.tpContShield.SuspendLayout();
             this.gbContShield.SuspendLayout();
-            this.tpAreas.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpStash);
+            this.tabControl1.Controls.Add(this.tpAppearance);
             this.tabControl1.Controls.Add(this.tpAreas);
             this.tabControl1.Controls.Add(this.tpStart);
             this.tabControl1.Controls.Add(this.tpPins);
@@ -227,6 +234,174 @@
             this.labelURL.Size = new System.Drawing.Size(105, 13);
             this.labelURL.TabIndex = 1;
             this.labelURL.Text = "Stashapp Location:";
+            // 
+            // tpAppearance
+            // 
+            this.tpAppearance.Controls.Add(this.groupBox3);
+            this.tpAppearance.Location = new System.Drawing.Point(4, 22);
+            this.tpAppearance.Name = "tpAppearance";
+            this.tpAppearance.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAppearance.Size = new System.Drawing.Size(426, 283);
+            this.tpAppearance.TabIndex = 5;
+            this.tpAppearance.Text = "Appearance";
+            this.tpAppearance.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chkDarkMode);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(414, 53);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Appearance Settings";
+            // 
+            // chkDarkMode
+            // 
+            this.chkDarkMode.AutoSize = true;
+            this.chkDarkMode.Location = new System.Drawing.Point(9, 32);
+            this.chkDarkMode.Name = "chkDarkMode";
+            this.chkDarkMode.Size = new System.Drawing.Size(119, 17);
+            this.chkDarkMode.TabIndex = 5;
+            this.chkDarkMode.Text = "Enable dark mode";
+            this.chkDarkMode.UseVisualStyleBackColor = true;
+            this.chkDarkMode.CheckedChanged += new System.EventHandler(this.chkDarkMode_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Set if dark mode is on or off.";
+            // 
+            // tpAreas
+            // 
+            this.tpAreas.Controls.Add(this.groupBox2);
+            this.tpAreas.Location = new System.Drawing.Point(4, 22);
+            this.tpAreas.Name = "tpAreas";
+            this.tpAreas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAreas.Size = new System.Drawing.Size(426, 283);
+            this.tpAreas.TabIndex = 4;
+            this.tpAreas.Text = "Areas";
+            this.tpAreas.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkTags);
+            this.groupBox2.Controls.Add(this.chkStudios);
+            this.groupBox2.Controls.Add(this.chkPerformers);
+            this.groupBox2.Controls.Add(this.chkGalleries);
+            this.groupBox2.Controls.Add(this.chkMarkers);
+            this.groupBox2.Controls.Add(this.chkImages);
+            this.groupBox2.Controls.Add(this.chkGroups);
+            this.groupBox2.Controls.Add(this.chkScenes);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(414, 226);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Area Settings";
+            // 
+            // chkTags
+            // 
+            this.chkTags.AutoSize = true;
+            this.chkTags.Location = new System.Drawing.Point(9, 202);
+            this.chkTags.Name = "chkTags";
+            this.chkTags.Size = new System.Drawing.Size(86, 17);
+            this.chkTags.TabIndex = 12;
+            this.chkTags.Text = "Enable Tags";
+            this.chkTags.UseVisualStyleBackColor = true;
+            this.chkTags.CheckedChanged += new System.EventHandler(this.chkTags_CheckedChanged);
+            // 
+            // chkStudios
+            // 
+            this.chkStudios.AutoSize = true;
+            this.chkStudios.Location = new System.Drawing.Point(9, 179);
+            this.chkStudios.Name = "chkStudios";
+            this.chkStudios.Size = new System.Drawing.Size(103, 17);
+            this.chkStudios.TabIndex = 11;
+            this.chkStudios.Text = "Enable Studios";
+            this.chkStudios.UseVisualStyleBackColor = true;
+            this.chkStudios.CheckedChanged += new System.EventHandler(this.chkStudios_CheckedChanged);
+            // 
+            // chkPerformers
+            // 
+            this.chkPerformers.AutoSize = true;
+            this.chkPerformers.Location = new System.Drawing.Point(9, 156);
+            this.chkPerformers.Name = "chkPerformers";
+            this.chkPerformers.Size = new System.Drawing.Size(119, 17);
+            this.chkPerformers.TabIndex = 10;
+            this.chkPerformers.Text = "Enable Performers";
+            this.chkPerformers.UseVisualStyleBackColor = true;
+            this.chkPerformers.CheckedChanged += new System.EventHandler(this.chkPerformers_CheckedChanged);
+            // 
+            // chkGalleries
+            // 
+            this.chkGalleries.AutoSize = true;
+            this.chkGalleries.Location = new System.Drawing.Point(9, 133);
+            this.chkGalleries.Name = "chkGalleries";
+            this.chkGalleries.Size = new System.Drawing.Size(108, 17);
+            this.chkGalleries.TabIndex = 9;
+            this.chkGalleries.Text = "Enable Galleries";
+            this.chkGalleries.UseVisualStyleBackColor = true;
+            this.chkGalleries.CheckedChanged += new System.EventHandler(this.chkGalleries_CheckedChanged);
+            // 
+            // chkMarkers
+            // 
+            this.chkMarkers.AutoSize = true;
+            this.chkMarkers.Location = new System.Drawing.Point(9, 110);
+            this.chkMarkers.Name = "chkMarkers";
+            this.chkMarkers.Size = new System.Drawing.Size(105, 17);
+            this.chkMarkers.TabIndex = 8;
+            this.chkMarkers.Text = "Enable Markers";
+            this.chkMarkers.UseVisualStyleBackColor = true;
+            this.chkMarkers.CheckedChanged += new System.EventHandler(this.chkMarkers_CheckedChanged);
+            // 
+            // chkImages
+            // 
+            this.chkImages.AutoSize = true;
+            this.chkImages.Location = new System.Drawing.Point(9, 64);
+            this.chkImages.Name = "chkImages";
+            this.chkImages.Size = new System.Drawing.Size(100, 17);
+            this.chkImages.TabIndex = 7;
+            this.chkImages.Text = "Enable Images";
+            this.chkImages.UseVisualStyleBackColor = true;
+            this.chkImages.CheckedChanged += new System.EventHandler(this.chkImages_CheckedChanged);
+            // 
+            // chkGroups
+            // 
+            this.chkGroups.AutoSize = true;
+            this.chkGroups.Location = new System.Drawing.Point(9, 87);
+            this.chkGroups.Name = "chkGroups";
+            this.chkGroups.Size = new System.Drawing.Size(102, 17);
+            this.chkGroups.TabIndex = 6;
+            this.chkGroups.Text = "Enable Groups";
+            this.chkGroups.UseVisualStyleBackColor = true;
+            this.chkGroups.CheckedChanged += new System.EventHandler(this.chkGroups_CheckedChanged);
+            // 
+            // chkScenes
+            // 
+            this.chkScenes.AutoSize = true;
+            this.chkScenes.Location = new System.Drawing.Point(9, 41);
+            this.chkScenes.Name = "chkScenes";
+            this.chkScenes.Size = new System.Drawing.Size(99, 17);
+            this.chkScenes.TabIndex = 5;
+            this.chkScenes.Text = "Enable Scenes";
+            this.chkScenes.UseVisualStyleBackColor = true;
+            this.chkScenes.CheckedChanged += new System.EventHandler(this.chkScenes_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(329, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Select the areas which you want to be visible in Stash Explorer.";
             // 
             // tpStart
             // 
@@ -387,6 +562,36 @@
             this.gbPins.TabStop = false;
             this.gbPins.Text = "Pin Settings";
             // 
+            // tbImportPins
+            // 
+            this.tbImportPins.Location = new System.Drawing.Point(137, 47);
+            this.tbImportPins.Name = "tbImportPins";
+            this.tbImportPins.Size = new System.Drawing.Size(100, 22);
+            this.tbImportPins.TabIndex = 10;
+            this.tbImportPins.Visible = false;
+            // 
+            // btnImport
+            // 
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnImport.Location = new System.Drawing.Point(252, 47);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 9;
+            this.btnImport.Text = "Import...";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnExport.Location = new System.Drawing.Point(333, 47);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 8;
+            this.btnExport.Text = "Export...";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // btnDel
             // 
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -433,11 +638,10 @@
             this.FavouritesLabel.AutoSize = true;
             this.FavouritesLabel.Location = new System.Drawing.Point(6, 18);
             this.FavouritesLabel.Name = "FavouritesLabel";
-            this.FavouritesLabel.Size = new System.Drawing.Size(392, 39);
+            this.FavouritesLabel.Size = new System.Drawing.Size(365, 26);
             this.FavouritesLabel.TabIndex = 3;
-            this.FavouritesLabel.Text = "Below is a list of performers you have saved. Performers cannot be saved in\r\nthe " +
-    "INI file, so it\'s best to export them manually and import them when the\r\napp upd" +
-    "ates.";
+            this.FavouritesLabel.Text = "Below is a list of performers you have saved. Performers are saved in a\r\nseperate" +
+    " \"PinList\" file in the install directory.";
             // 
             // tpContShield
             // 
@@ -532,165 +736,9 @@
             this.lblSaveReminder.TabIndex = 5;
             this.lblSaveReminder.Text = " Settings are saved on close.";
             // 
-            // btnExport
-            // 
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnExport.Location = new System.Drawing.Point(333, 47);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
-            this.btnExport.TabIndex = 8;
-            this.btnExport.Text = "Export...";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnImport.Location = new System.Drawing.Point(252, 47);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 23);
-            this.btnImport.TabIndex = 9;
-            this.btnImport.Text = "Import...";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // tbImportPins
-            // 
-            this.tbImportPins.Location = new System.Drawing.Point(137, 47);
-            this.tbImportPins.Name = "tbImportPins";
-            this.tbImportPins.Size = new System.Drawing.Size(100, 22);
-            this.tbImportPins.TabIndex = 10;
-            this.tbImportPins.Visible = false;
-            // 
-            // tpAreas
-            // 
-            this.tpAreas.Controls.Add(this.groupBox2);
-            this.tpAreas.Location = new System.Drawing.Point(4, 22);
-            this.tpAreas.Name = "tpAreas";
-            this.tpAreas.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAreas.Size = new System.Drawing.Size(426, 283);
-            this.tpAreas.TabIndex = 4;
-            this.tpAreas.Text = "Areas";
-            this.tpAreas.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.chkTags);
-            this.groupBox2.Controls.Add(this.chkStudios);
-            this.groupBox2.Controls.Add(this.chkPerformers);
-            this.groupBox2.Controls.Add(this.chkGalleries);
-            this.groupBox2.Controls.Add(this.chkMarkers);
-            this.groupBox2.Controls.Add(this.chkImages);
-            this.groupBox2.Controls.Add(this.chkGroups);
-            this.groupBox2.Controls.Add(this.chkScenes);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(414, 226);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Start-up Settings";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Select the areas which you want to be visible in Stash Explorer.";
-            // 
-            // chkScenes
-            // 
-            this.chkScenes.AutoSize = true;
-            this.chkScenes.Location = new System.Drawing.Point(9, 41);
-            this.chkScenes.Name = "chkScenes";
-            this.chkScenes.Size = new System.Drawing.Size(99, 17);
-            this.chkScenes.TabIndex = 5;
-            this.chkScenes.Text = "Enable Scenes";
-            this.chkScenes.UseVisualStyleBackColor = true;
-            this.chkScenes.CheckedChanged += new System.EventHandler(this.chkScenes_CheckedChanged);
-            // 
-            // chkGroups
-            // 
-            this.chkGroups.AutoSize = true;
-            this.chkGroups.Location = new System.Drawing.Point(9, 87);
-            this.chkGroups.Name = "chkGroups";
-            this.chkGroups.Size = new System.Drawing.Size(102, 17);
-            this.chkGroups.TabIndex = 6;
-            this.chkGroups.Text = "Enable Groups";
-            this.chkGroups.UseVisualStyleBackColor = true;
-            this.chkGroups.CheckedChanged += new System.EventHandler(this.chkGroups_CheckedChanged);
-            // 
-            // chkImages
-            // 
-            this.chkImages.AutoSize = true;
-            this.chkImages.Location = new System.Drawing.Point(9, 64);
-            this.chkImages.Name = "chkImages";
-            this.chkImages.Size = new System.Drawing.Size(100, 17);
-            this.chkImages.TabIndex = 7;
-            this.chkImages.Text = "Enable Images";
-            this.chkImages.UseVisualStyleBackColor = true;
-            this.chkImages.CheckedChanged += new System.EventHandler(this.chkImages_CheckedChanged);
-            // 
-            // chkMarkers
-            // 
-            this.chkMarkers.AutoSize = true;
-            this.chkMarkers.Location = new System.Drawing.Point(9, 110);
-            this.chkMarkers.Name = "chkMarkers";
-            this.chkMarkers.Size = new System.Drawing.Size(105, 17);
-            this.chkMarkers.TabIndex = 8;
-            this.chkMarkers.Text = "Enable Markers";
-            this.chkMarkers.UseVisualStyleBackColor = true;
-            this.chkMarkers.CheckedChanged += new System.EventHandler(this.chkMarkers_CheckedChanged);
-            // 
-            // chkGalleries
-            // 
-            this.chkGalleries.AutoSize = true;
-            this.chkGalleries.Location = new System.Drawing.Point(9, 133);
-            this.chkGalleries.Name = "chkGalleries";
-            this.chkGalleries.Size = new System.Drawing.Size(108, 17);
-            this.chkGalleries.TabIndex = 9;
-            this.chkGalleries.Text = "Enable Galleries";
-            this.chkGalleries.UseVisualStyleBackColor = true;
-            this.chkGalleries.CheckedChanged += new System.EventHandler(this.chkGalleries_CheckedChanged);
-            // 
-            // chkPerformers
-            // 
-            this.chkPerformers.AutoSize = true;
-            this.chkPerformers.Location = new System.Drawing.Point(9, 156);
-            this.chkPerformers.Name = "chkPerformers";
-            this.chkPerformers.Size = new System.Drawing.Size(119, 17);
-            this.chkPerformers.TabIndex = 10;
-            this.chkPerformers.Text = "Enable Performers";
-            this.chkPerformers.UseVisualStyleBackColor = true;
-            this.chkPerformers.CheckedChanged += new System.EventHandler(this.chkPerformers_CheckedChanged);
-            // 
-            // chkStudios
-            // 
-            this.chkStudios.AutoSize = true;
-            this.chkStudios.Location = new System.Drawing.Point(9, 179);
-            this.chkStudios.Name = "chkStudios";
-            this.chkStudios.Size = new System.Drawing.Size(103, 17);
-            this.chkStudios.TabIndex = 11;
-            this.chkStudios.Text = "Enable Studios";
-            this.chkStudios.UseVisualStyleBackColor = true;
-            this.chkStudios.CheckedChanged += new System.EventHandler(this.chkStudios_CheckedChanged);
-            // 
-            // chkTags
-            // 
-            this.chkTags.AutoSize = true;
-            this.chkTags.Location = new System.Drawing.Point(9, 202);
-            this.chkTags.Name = "chkTags";
-            this.chkTags.Size = new System.Drawing.Size(86, 17);
-            this.chkTags.TabIndex = 12;
-            this.chkTags.Text = "Enable Tags";
-            this.chkTags.UseVisualStyleBackColor = true;
-            this.chkTags.CheckedChanged += new System.EventHandler(this.chkTags_CheckedChanged);
             // 
             // Settings
             // 
@@ -718,6 +766,12 @@
             this.GroupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tpAppearance.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.tpAreas.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tpStart.ResumeLayout(false);
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
@@ -727,9 +781,6 @@
             this.tpContShield.ResumeLayout(false);
             this.gbContShield.ResumeLayout(false);
             this.gbContShield.PerformLayout();
-            this.tpAreas.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -790,5 +841,9 @@
         private System.Windows.Forms.CheckBox chkGalleries;
         private System.Windows.Forms.CheckBox chkMarkers;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TabPage tpAppearance;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chkDarkMode;
+        internal System.Windows.Forms.Label label2;
     }
 }

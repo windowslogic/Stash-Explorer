@@ -18,6 +18,5 @@ J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csproj.CoreCo
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.exe
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.pdb
 J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash_Explorer.About.resources
-J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csproj.AssemblyReference.cache
-J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.exe.config
-J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Ex.DC928883.Up2Date
+J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csproj.CopyComplete
+J:\Projects\Stash Explorer\Stash Explorer\obj\Debug\Stash Explorer.csprojAssemblyReference.cache
