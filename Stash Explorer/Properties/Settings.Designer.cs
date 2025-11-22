@@ -122,7 +122,7 @@ namespace Stash_Explorer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool Reload {
+        public new bool Reload {
             get {
                 return ((bool)(this["Reload"]));
             }

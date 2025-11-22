@@ -297,6 +297,7 @@ namespace Stash_Explorer
                 helpToolStripMenuItem.ForeColor = Color.White;
                 btnPin.ForeColor = Color.White;
                 btnPins.ForeColor = Color.White;
+                lblPins.ForeColor = Color.White;
             }
             else
             {
@@ -611,7 +612,6 @@ namespace Stash_Explorer
                 btnPin.ForeColor = Color.Black;
             }
         }
-
         #endregion
         #region Content Shield & Areas Selection
         // We have to use this timer for two purposes because C# is stupid and can't control

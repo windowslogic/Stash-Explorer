@@ -428,7 +428,7 @@ namespace Stash_Explorer
                 lbPinned.Items.Remove(lbPinned.SelectedItem);
                 Properties.Settings.Default.Save();
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Unable to deleted selected pin.");
             }
