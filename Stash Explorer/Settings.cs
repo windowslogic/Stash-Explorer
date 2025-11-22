@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-using System.Linq;
-//using System.Text;
 using System.Text.RegularExpressions;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace Stash_Explorer
 {
@@ -129,6 +122,17 @@ namespace Stash_Explorer
                 chkTags.Checked = false;
             }
 
+            if (Properties.Settings.Default.DarkMode == true)
+            {
+                chkDarkMode.Checked = true;
+                this.BackColor = Color.Black;
+            }
+            else
+            {
+                chkDarkMode.Checked = false;
+                this.BackColor = Color.WhiteSmoke;
+            }
+
             // Load user startup settings.
             switch (Properties.Settings.Default.Startup)
             {
@@ -242,12 +246,10 @@ namespace Stash_Explorer
             if (chkDarkMode.Checked == true)
             {
                 Properties.Settings.Default.DarkMode = true;
-                MessageBox.Show("For dark mode to take effect, you need to restart Stash Explorer.");
             }
             else
             {
                 Properties.Settings.Default.DarkMode = false;
-                MessageBox.Show("For light mode to take effect, you need to restart Stash Explorer.");
             }
         }
         #endregion

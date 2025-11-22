@@ -175,6 +175,17 @@ namespace Stash_Explorer
                 {
                     Properties.Settings.Default.EnableTags = false;
                 }
+
+                tbSetSettings.Text = File.ReadAllLines("StashExplorer.ini").ElementAt(38).ToString();
+
+                if (tbSetSettings.Text == "true")
+                {
+                    Properties.Settings.Default.DarkMode = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.DarkMode = false;
+                }
             }
             catch
             {
@@ -275,6 +286,25 @@ namespace Stash_Explorer
         }
         #endregion
         #region Load Settings
+        private void Main_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.DarkMode == true)
+            {
+                this.BackColor = Color.Black;
+                menuStripSE.BackColor = Color.Black;
+                fileToolStripMenuItem.ForeColor = Color.White;
+                stashToolStripMenuItem.ForeColor = Color.White;
+                helpToolStripMenuItem.ForeColor = Color.White;
+                btnPin.ForeColor = Color.White;
+                btnPins.ForeColor = Color.White;
+            }
+            else
+            {
+                this.BackColor = Color.WhiteSmoke;
+                menuStripSE.BackColor = Color.WhiteSmoke;
+            }
+        }
+
         private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
         {
             contentTimer.Start();
@@ -287,42 +317,43 @@ namespace Stash_Explorer
         #endregion
         #region Menu
         #region File
-        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newWindowToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Main main = new Main();
             main.Show();
         }
-        private void createSceneToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void createSceneToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "scenes/new");
         }
 
-        private void createGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createGroupToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "groups/new");
         }
 
-        private void createGalleryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createGalleryToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "gallery/new");
         }
 
-        private void createPerformerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createPerformerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "performers/new");
         }
 
-        private void createStudioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createStudioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "studios/new");
         }
 
-        private void createTagToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createTagToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.webView21.CoreWebView2.Navigate(Properties.Settings.Default.Domain + "tags/new");
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -554,7 +585,14 @@ namespace Stash_Explorer
 
         private void btnPins_MouseLeave(object sender, EventArgs e)
         {
-            btnPins.ForeColor = Color.Black;
+            if (Properties.Settings.Default.DarkMode == true)
+            {
+                btnPins.ForeColor = Color.White;
+            }
+            else
+            {
+                btnPins.ForeColor = Color.Black;
+            }
         }
 
         private void btnPin_MouseHover(object sender, EventArgs e)
@@ -564,7 +602,14 @@ namespace Stash_Explorer
 
         private void btnPin_MouseLeave(object sender, EventArgs e)
         {
-            btnPin.ForeColor = Color.Black;
+            if (Properties.Settings.Default.DarkMode == true)
+            {
+                btnPin.ForeColor = Color.White;
+            }
+            else
+            {
+                btnPin.ForeColor = Color.Black;
+            }
         }
 
         #endregion
@@ -599,12 +644,12 @@ namespace Stash_Explorer
             // Checks user area settings to see if anything changed and enables/disables accordingly.
             if (Properties.Settings.Default.EnableScenes == true)
             {
-                createSceneToolStripMenuItem.Visible = true;
+                createSceneToolStripMenuItem1.Visible = true;
                 scenesToolStripMenuItem.Visible = true;
             }
             else
             {
-                createSceneToolStripMenuItem.Visible = false;
+                createSceneToolStripMenuItem1.Visible = false;
                 scenesToolStripMenuItem.Visible = false;
             }
 
@@ -619,12 +664,12 @@ namespace Stash_Explorer
 
             if (Properties.Settings.Default.EnableGroups == true)
             {
-                createGroupToolStripMenuItem.Visible = true;
+                createGroupToolStripMenuItem1.Visible = true;
                 groupsToolStripMenuItem.Visible = true;
             }
             else
             {
-                createGroupToolStripMenuItem.Visible = false;
+                createGroupToolStripMenuItem1.Visible = false;
                 groupsToolStripMenuItem.Visible = false;
             }
 
@@ -639,45 +684,45 @@ namespace Stash_Explorer
 
             if (Properties.Settings.Default.EnableGalleries == true)
             {
-                createGalleryToolStripMenuItem.Visible = true;
+                createGalleryToolStripMenuItem1.Visible = true;
                 galleriesToolStripMenuItem.Visible = true;
             }
             else
             {
-                createGalleryToolStripMenuItem.Visible = false;
+                createGalleryToolStripMenuItem1.Visible = false;
                 galleriesToolStripMenuItem.Visible = false;
             }
 
             if (Properties.Settings.Default.EnablePerformers == true)
             {
-                createPerformerToolStripMenuItem.Visible = true;
+                createPerformerToolStripMenuItem1.Visible = true;
                 performersToolStripMenuItem.Visible = true;
             }
             else
             {
-                createPerformerToolStripMenuItem.Visible = false;
+                createPerformerToolStripMenuItem1.Visible = false;
                 performersToolStripMenuItem.Visible = false;
             }
 
             if (Properties.Settings.Default.EnableStudios == true)
             {
-                createStudioToolStripMenuItem.Visible = true;
+                createStudioToolStripMenuItem1.Visible = true;
                 studiosToolStripMenuItem.Visible = true;
             }
             else
             {
-                createStudioToolStripMenuItem.Visible = false;
+                createStudioToolStripMenuItem1.Visible = false;
                 studiosToolStripMenuItem.Visible = false;
             }
 
             if (Properties.Settings.Default.EnableTags == true)
             {
-                createTagToolStripMenuItem.Visible = true;
+                createTagToolStripMenuItem1.Visible = true;
                 tagsToolStripMenuItem.Visible = true;
             }
             else
             {
-                createTagToolStripMenuItem.Visible = false;
+                createTagToolStripMenuItem1.Visible = false;
                 tagsToolStripMenuItem.Visible = false;
             }
         }
@@ -837,6 +882,15 @@ namespace Stash_Explorer
             }
             objWriter.WriteLine("[EnableTags]");
             if (Properties.Settings.Default.EnableTags == true)
+            {
+                objWriter.WriteLine("true");
+            }
+            else
+            {
+                objWriter.WriteLine("false");
+            }
+            objWriter.WriteLine("[EnableDarkMode]");
+            if (Properties.Settings.Default.DarkMode == true)
             {
                 objWriter.WriteLine("true");
             }
