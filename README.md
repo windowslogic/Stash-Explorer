@@ -4,6 +4,8 @@
 [![Issues](https://img.shields.io/github/issues/windowslogic/Stash-Explorer)](https://github.com/windowslogic/Stash-Explorer/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/windowslogic/Stash-Explorer)](https://github.com/windowslogic/Stash-Explorer/pulls)
 
+UPDATE: I no longer use Stashapp for organising my image/video library and thus will not writing anymore code for this program. If you would like to still contribute to this project, I will still be accepting pull requests and releasing builds from those pull requests. Thank you.
+
 Stash Explorer adds extra (external) functionality to your Stashapp instance.
 
 ![example image](https://cdn.windowslogic.co.uk/img/an39517o.png)
